@@ -1,0 +1,505 @@
+{
+    "VOO": {
+        "assetProfile": {
+            "phone": "800-523-1036",
+            "longBusinessSummary": "The fund employs an indexing investment approach designed to track the performance of the Standard & Poor's 500 Index, a widely recognized benchmark of U.S. stock market performance that is dominated by the stocks of large U.S. companies. The advisor attempts to replicate the target index by investing all, or substantially all, of its assets in the stocks that make up the index, holding each stock in approximately the same proportion as its weighting in the index.",
+            "companyOfficers": [],
+            "maxAge": 86400
+        },
+        "fundProfile": {
+            "maxAge": 1,
+            "styleBoxUrl": "https://s.yimg.com/lq/i/fi/3_0stylelargeeqLarge Blend.gif",
+            "family": "Vanguard",
+            "categoryName": "Large Blend",
+            "legalType": "Exchange Traded Fund",
+            "managementInfo": {
+                "managerName": null,
+                "managerBio": null
+            },
+            "feesExpensesInvestment": {
+                "annualReportExpenseRatio": 0.0004,
+                "annualHoldingsTurnover": 0.02,
+                "totalNetAssets": 170383.2,
+                "projectionValues": {}
+            },
+            "feesExpensesInvestmentCat": {
+                "annualReportExpenseRatio": 0.0036000002,
+                "annualHoldingsTurnover": 50.76,
+                "totalNetAssets": 170383.2,
+                "projectionValuesCat": {}
+            },
+            "brokerages": []
+        },
+        "summaryDetail": {
+            "maxAge": 1,
+            "priceHint": 2,
+            "previousClose": 359.88,
+            "open": 360.47,
+            "dayLow": 359.83,
+            "dayHigh": 363.58,
+            "regularMarketPreviousClose": 359.88,
+            "regularMarketOpen": 360.47,
+            "regularMarketDayLow": 359.83,
+            "regularMarketDayHigh": 363.58,
+            "trailingPE": 19.782045,
+            "volume": 3086103,
+            "regularMarketVolume": 3086103,
+            "averageVolume": 4084033,
+            "averageVolume10days": 5039920,
+            "averageDailyVolume10Day": 5039920,
+            "bid": 0.0,
+            "ask": 366.07,
+            "bidSize": 800,
+            "askSize": 900,
+            "yield": 0.0163,
+            "totalAssets": 774602883072,
+            "fiftyTwoWeekLow": 319.87,
+            "fiftyTwoWeekHigh": 424.72,
+            "fiftyDayAverage": 367.743,
+            "twoHundredDayAverage": 361.0764,
+            "trailingAnnualDividendRate": 5.437,
+            "trailingAnnualDividendYield": 0.015107813,
+            "navPrice": 363.06,
+            "currency": "USD",
+            "fromCurrency": null,
+            "toCurrency": null,
+            "lastMarket": null,
+            "coinMarketCapLink": null,
+            "algorithm": null,
+            "tradeable": false
+        },
+        "pageViews": {
+            "shortTermTrend": "DOWN",
+            "midTermTrend": "UP",
+            "longTermTrend": "UP",
+            "maxAge": 1
+        },
+        "price": {
+            "maxAge": 1,
+            "preMarketChangePercent": 0.008591951,
+            "preMarketChange": 3.119995,
+            "preMarketTime": "2023-03-21 09:06:35",
+            "preMarketPrice": 366.25,
+            "preMarketSource": "FREE_REALTIME",
+            "postMarketSource": "FREE_REALTIME",
+            "regularMarketChangePercent": 0.00903079,
+            "regularMarketChange": 3.25,
+            "regularMarketTime": "2023-03-20 16:00:00",
+            "priceHint": 2,
+            "regularMarketPrice": 363.13,
+            "regularMarketDayHigh": 363.58,
+            "regularMarketDayLow": 359.83,
+            "regularMarketVolume": 3086103,
+            "averageDailyVolume10Day": 5039920,
+            "averageDailyVolume3Month": 4084033,
+            "regularMarketPreviousClose": 359.88,
+            "regularMarketSource": "FREE_REALTIME",
+            "regularMarketOpen": 360.47,
+            "exchange": "PCX",
+            "exchangeName": "NYSEArca",
+            "exchangeDataDelayedBy": 0,
+            "marketState": "PRE",
+            "quoteType": "ETF",
+            "symbol": "VOO",
+            "underlyingSymbol": null,
+            "shortName": "Vanguard S&P 500 ETF",
+            "longName": "Vanguard 500 Index Fund",
+            "currency": "USD",
+            "quoteSourceName": "Nasdaq Real Time Price",
+            "currencySymbol": "$",
+            "fromCurrency": null,
+            "toCurrency": null,
+            "lastMarket": null
+        },
+        "defaultKeyStatistics": {
+            "maxAge": 1,
+            "priceHint": 2,
+            "category": "Large Blend",
+            "ytdReturn": 0.0335572,
+            "beta3Year": 1.0,
+            "totalAssets": 774602883072,
+            "yield": 0.0163,
+            "fundFamily": "Vanguard",
+            "fundInceptionDate": "2000-11-12 19:00:00",
+            "legalType": "Exchange Traded Fund",
+            "threeYearAverageReturn": 0.2164454,
+            "fiveYearAverageReturn": 0.096503496,
+            "lastSplitFactor": null
+        },
+        "summaryProfile": {
+            "phone": "800-523-1036",
+            "longBusinessSummary": "The fund employs an indexing investment approach designed to track the performance of the Standard & Poor's 500 Index, a widely recognized benchmark of U.S. stock market performance that is dominated by the stocks of large U.S. companies. The advisor attempts to replicate the target index by investing all, or substantially all, of its assets in the stocks that make up the index, holding each stock in approximately the same proportion as its weighting in the index.",
+            "companyOfficers": [],
+            "maxAge": 86400
+        },
+        "topHoldings": {
+            "maxAge": 1,
+            "stockPosition": 0.9969,
+            "bondPosition": 0.0,
+            "holdings": [
+                {
+                    "symbol": "GOOGL",
+                    "holdingName": "GOOGL",
+                    "holdingPercent": 0.016152801
+                },
+                {
+                    "symbol": "GOOG",
+                    "holdingName": "GOOG",
+                    "holdingPercent": 0.0143577
+                },
+                {
+                    "symbol": "AMZN",
+                    "holdingName": "AMZN",
+                    "holdingPercent": 0.025113799
+                },
+                {
+                    "symbol": "AAPL",
+                    "holdingName": "AAPL",
+                    "holdingPercent": 0.0661923
+                },
+                {
+                    "symbol": "BRK.B",
+                    "holdingName": "BRK.B",
+                    "holdingPercent": 0.0165109
+                },
+                {
+                    "symbol": "XOM",
+                    "holdingName": "XOM",
+                    "holdingPercent": 0.0135923
+                },
+                {
+                    "symbol": "MSFT",
+                    "holdingName": "MSFT",
+                    "holdingPercent": 0.055831898
+                },
+                {
+                    "symbol": "NVDA",
+                    "holdingName": "NVDA",
+                    "holdingPercent": 0.0173587
+                },
+                {
+                    "symbol": "TSLA",
+                    "holdingName": "TSLA",
+                    "holdingPercent": 0.01658
+                },
+                {
+                    "symbol": "UNH",
+                    "holdingName": "UNH",
+                    "holdingPercent": 0.0133535005
+                }
+            ],
+            "equityHoldings": {
+                "priceToEarnings": 0.05025,
+                "priceToBook": 0.27478,
+                "priceToSales": 0.43284,
+                "priceToCashflow": 0.0684
+            },
+            "bondHoldings": {},
+            "bondRatings": [
+                {
+                    "us_government": 0.0
+                }
+            ],
+            "sectorWeightings": [
+                {
+                    "realestate": 0.0276
+                },
+                {
+                    "consumer_cyclical": 0.1043
+                },
+                {
+                    "basic_materials": 0.025
+                },
+                {
+                    "consumer_defensive": 0.071100004
+                },
+                {
+                    "technology": 0.2466
+                },
+                {
+                    "communication_services": 0.0764
+                },
+                {
+                    "financial_services": 0.1391
+                },
+                {
+                    "utilities": 0.028199999
+                },
+                {
+                    "industrials": 0.0867
+                },
+                {
+                    "energy": 0.0479
+                },
+                {
+                    "healthcare": 0.1439
+                }
+            ]
+        },
+        "fundPerformance": {
+            "maxAge": 1,
+            "performanceOverview": {
+                "asOfDate": "2023-03-19 20:00:00",
+                "ytdReturnPct": 0.0335572,
+                "oneYearTotalReturn": -0.0993627,
+                "threeYearTotalReturn": 0.2164454
+            },
+            "performanceOverviewCat": {
+                "ytdReturnPct": 0.075,
+                "fiveYrAvgReturnPct": 0.1576
+            },
+            "trailingReturns": {
+                "asOfDate": "2023-03-19 20:00:00",
+                "ytd": 0.0335572,
+                "oneMonth": -0.029635001,
+                "threeMonth": 0.0384934,
+                "oneYear": -0.0993627,
+                "threeYear": 0.2164454,
+                "fiveYear": 0.096503496,
+                "tenYear": 0.11837771,
+                "lastBullMkt": 0.0,
+                "lastBearMkt": 0.0
+            },
+            "trailingReturnsNav": {
+                "ytd": 0.0335572,
+                "oneMonth": -0.029635001,
+                "threeMonth": 0.0384934,
+                "oneYear": -0.0993627,
+                "threeYear": 0.2164454,
+                "fiveYear": 0.096503496,
+                "tenYear": 0.11837771
+            },
+            "trailingReturnsCat": {
+                "ytd": 0.075,
+                "oneMonth": -0.0025,
+                "threeMonth": 0.032,
+                "oneYear": 0.1345,
+                "threeYear": 0.1014,
+                "fiveYear": 0.1576,
+                "tenYear": 0.0733,
+                "lastBullMkt": 0.0,
+                "lastBearMkt": 0.0
+            },
+            "annualTotalReturns": {
+                "returns": [
+                    {
+                        "year": "2022",
+                        "annualValue": -0.18150659
+                    },
+                    {
+                        "year": "2021",
+                        "annualValue": 0.28658992
+                    },
+                    {
+                        "year": "2020",
+                        "annualValue": 0.1834731
+                    },
+                    {
+                        "year": "2019",
+                        "annualValue": 0.3146071
+                    },
+                    {
+                        "year": "2018",
+                        "annualValue": -0.0442033
+                    },
+                    {
+                        "year": "2017",
+                        "annualValue": 0.2178206
+                    },
+                    {
+                        "year": "2016",
+                        "annualValue": 0.1193151
+                    },
+                    {
+                        "year": "2015",
+                        "annualValue": 0.0135349
+                    },
+                    {
+                        "year": "2014",
+                        "annualValue": 0.1363285
+                    },
+                    {
+                        "year": "2013",
+                        "annualValue": 0.3233255
+                    }
+                ],
+                "returnsCat": [
+                    {
+                        "year": "2015",
+                        "annualValue": -0.0063223
+                    },
+                    {
+                        "year": "2014",
+                        "annualValue": 0.1178567
+                    },
+                    {
+                        "year": "2013",
+                        "annualValue": 0.3143698
+                    },
+                    {
+                        "year": "2012",
+                        "annualValue": 0.1421203
+                    },
+                    {
+                        "year": "2011",
+                        "annualValue": 0.016827399
+                    },
+                    {
+                        "year": "2010",
+                        "annualValue": 0.17790991
+                    },
+                    {
+                        "year": "2009",
+                        "annualValue": 0.322644
+                    },
+                    {
+                        "year": "2008",
+                        "annualValue": -0.38047272
+                    },
+                    {
+                        "year": "2007",
+                        "annualValue": 0.044018798
+                    },
+                    {
+                        "year": "2006",
+                        "annualValue": 0.1554867
+                    },
+                    {
+                        "year": "2005",
+                        "annualValue": 0.0468473
+                    },
+                    {
+                        "year": "2004",
+                        "annualValue": 0.1255366
+                    },
+                    {
+                        "year": "2003",
+                        "annualValue": 0.2909224
+                    },
+                    {
+                        "year": "2002",
+                        "annualValue": -0.17842369
+                    },
+                    {
+                        "year": "2001",
+                        "annualValue": -0.057511102
+                    },
+                    {
+                        "year": "2000",
+                        "annualValue": -0.052431203
+                    },
+                    {
+                        "year": "1999",
+                        "annualValue": 0.1598289
+                    },
+                    {
+                        "year": "1998",
+                        "annualValue": 0.2835127
+                    },
+                    {
+                        "year": "1997",
+                        "annualValue": 0.33063492
+                    },
+                    {
+                        "year": "1996",
+                        "annualValue": 0.22740379
+                    },
+                    {
+                        "year": "1995",
+                        "annualValue": 0.3722677
+                    },
+                    {
+                        "year": "1994",
+                        "annualValue": 0.011552599
+                    }
+                ]
+            },
+            "pastQuarterlyReturns": {
+                "returns": []
+            },
+            "riskOverviewStatistics": {
+                "riskStatistics": [
+                    {
+                        "year": "5y",
+                        "alpha": -0.04,
+                        "beta": 1.0,
+                        "meanAnnualReturn": 0.92,
+                        "rSquared": 100.0,
+                        "stdDev": 18.67,
+                        "sharpeRatio": -0.16,
+                        "treynorRatio": 8.32
+                    },
+                    {
+                        "year": "3y",
+                        "alpha": -0.05,
+                        "beta": 1.0,
+                        "meanAnnualReturn": 1.13,
+                        "rSquared": 100.0,
+                        "stdDev": 20.8,
+                        "sharpeRatio": -0.44,
+                        "treynorRatio": 11.06
+                    },
+                    {
+                        "year": "10y",
+                        "alpha": -0.04,
+                        "beta": 1.0,
+                        "meanAnnualReturn": 1.06,
+                        "rSquared": 100.0,
+                        "stdDev": 14.85,
+                        "sharpeRatio": 0.8,
+                        "treynorRatio": 11.31
+                    }
+                ]
+            },
+            "riskOverviewStatisticsCat": {
+                "riskStatisticsCat": [
+                    {
+                        "year": "5y",
+                        "alpha": -0.48,
+                        "beta": 1.0,
+                        "meanAnnualReturn": 1.28,
+                        "rSquared": 95.34,
+                        "stdDev": 11.38,
+                        "sharpeRatio": 1.34,
+                        "treynorRatio": 15.73
+                    },
+                    {
+                        "year": "3y",
+                        "alpha": -0.65,
+                        "beta": 0.98,
+                        "meanAnnualReturn": 0.86,
+                        "rSquared": 94.06,
+                        "stdDev": 10.9,
+                        "sharpeRatio": 0.94,
+                        "treynorRatio": 10.38
+                    },
+                    {
+                        "year": "10y",
+                        "alpha": 0.15,
+                        "beta": 1.0,
+                        "meanAnnualReturn": 0.69,
+                        "rSquared": 96.99,
+                        "stdDev": 15.42,
+                        "sharpeRatio": 0.48,
+                        "treynorRatio": 6.54
+                    }
+                ]
+            }
+        },
+        "quoteType": {
+            "exchange": "PCX",
+            "quoteType": "ETF",
+            "symbol": "VOO",
+            "underlyingSymbol": "VOO",
+            "shortName": "Vanguard S&P 500 ETF",
+            "longName": "Vanguard 500 Index Fund",
+            "firstTradeDateEpochUtc": "2010-09-09 09:30:00",
+            "timeZoneFullName": "America/New_York",
+            "timeZoneShortName": "EDT",
+            "uuid": "367519e5-61d9-3b17-9298-4635221f9752",
+            "messageBoardId": "finmb_28117396",
+            "gmtOffSetMilliseconds": -14400000,
+            "maxAge": 1
+        }
+    }
+}

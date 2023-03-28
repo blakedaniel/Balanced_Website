@@ -1,0 +1,113 @@
+{
+    "CWMCX": {
+        "fundProfile": {
+            "maxAge": 1,
+            "styleBoxUrl": null,
+            "family": null,
+            "categoryName": null,
+            "legalType": null,
+            "managementInfo": {
+                "managerName": null,
+                "managerBio": null
+            },
+            "feesExpensesInvestment": {
+                "projectionValues": {}
+            },
+            "feesExpensesInvestmentCat": {
+                "projectionValuesCat": {}
+            },
+            "brokerages": []
+        },
+        "esgScores": {
+            "maxAge": 86400,
+            "totalEsg": 23.2,
+            "environmentScore": 4.82,
+            "socialScore": 10.89,
+            "governanceScore": 7.49,
+            "ratingYear": 2020,
+            "ratingMonth": 12,
+            "highestControversy": null,
+            "peerCount": 1451,
+            "esgPerformance": "UNDER_PERF",
+            "peerGroup": "US Fund Large Blend",
+            "peerEsgScorePerformance": {
+                "min": 17.61,
+                "avg": 22.15935906271541,
+                "max": 33.1
+            },
+            "peerGovernancePerformance": {
+                "min": 5.27,
+                "avg": 7.543493723849385,
+                "max": 10.67
+            },
+            "peerSocialPerformance": {
+                "min": 7.42,
+                "avg": 10.119211994421233,
+                "max": 12.04
+            },
+            "peerEnvironmentPerformance": {
+                "min": 1.48,
+                "avg": 3.810376569037646,
+                "max": 10.04
+            },
+            "percentAumCovered": 99.5937,
+            "sustainRank": 82,
+            "responsible": false,
+            "sustainScore": 23.2,
+            "peerSustainPerformance": {
+                "min": 17.61,
+                "avg": 22.15935906271541,
+                "max": 33.1
+            }
+        },
+        "pageViews": {
+            "shortTermTrend": "UP",
+            "midTermTrend": "UP",
+            "longTermTrend": "UP",
+            "maxAge": 1
+        },
+        "quoteType": {
+            "exchange": "NAS",
+            "quoteType": "MUTUALFUND",
+            "symbol": "CWMCX",
+            "underlyingSymbol": "CWMCX",
+            "shortName": "Washington Mutual Investors Fun",
+            "longName": "Washington Mutual Investors Fund Class 529-C Shares",
+            "firstTradeDateEpochUtc": "2002-02-15 09:30:00",
+            "timeZoneFullName": "America/New_York",
+            "timeZoneShortName": "EDT",
+            "uuid": "f449cc8c-945c-3267-9685-3c76ae5d8ace",
+            "messageBoardId": "finmb_6440536",
+            "gmtOffSetMilliseconds": -14400000,
+            "maxAge": 1
+        },
+        "price": {
+            "maxAge": 1,
+            "regularMarketChangePercent": 0.00941695,
+            "regularMarketChange": 0.47,
+            "regularMarketTime": "2023-03-21 08:05:11",
+            "priceHint": 2,
+            "regularMarketPrice": 50.38,
+            "averageDailyVolume10Day": 0,
+            "averageDailyVolume3Month": 0,
+            "regularMarketPreviousClose": 49.91,
+            "regularMarketSource": "DELAYED",
+            "exchange": "NAS",
+            "exchangeName": "Nasdaq",
+            "exchangeDataDelayedBy": 0,
+            "marketState": "REGULAR",
+            "quoteType": "MUTUALFUND",
+            "symbol": "CWMCX",
+            "underlyingSymbol": null,
+            "shortName": "Washington Mutual Investors Fun",
+            "longName": "Washington Mutual Investors Fund Class 529-C Shares",
+            "currency": "USD",
+            "quoteSourceName": "Delayed Quote",
+            "currencySymbol": "$",
+            "fromCurrency": null,
+            "toCurrency": null,
+            "lastMarket": null,
+            "marketCap": 113150459904
+        }
+    }
+}

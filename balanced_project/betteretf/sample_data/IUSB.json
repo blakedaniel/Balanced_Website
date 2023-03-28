@@ -1,0 +1,324 @@
+{
+    "IUSB": {
+        "assetProfile": {
+            "phone": "1-800-474-2737",
+            "longBusinessSummary": "The fund will invest at least 80% of its assets in the component securities of the underlying index and to-be-announced transactions (\u201cTBAs\u201d) that have economic characteristics that are substantially identical to the economic characteristics of the component securities of the underlying index. The index measures the performance of U.S. dollar-denominated taxable bonds that are rated either investment-grade or high yield.",
+            "companyOfficers": [],
+            "maxAge": 86400
+        },
+        "fundProfile": {
+            "maxAge": 1,
+            "styleBoxUrl": "https://s.yimg.com/lq/i/fi/3_0stylelargeeq.gif",
+            "family": "iShares",
+            "categoryName": null,
+            "legalType": "Exchange Traded Fund",
+            "managementInfo": {
+                "managerName": null,
+                "managerBio": null
+            },
+            "feesExpensesInvestment": {
+                "annualReportExpenseRatio": 0.00059999997,
+                "annualHoldingsTurnover": 1.41,
+                "totalNetAssets": 0.0,
+                "projectionValues": {}
+            },
+            "feesExpensesInvestmentCat": {
+                "totalNetAssets": 0.0,
+                "projectionValuesCat": {}
+            },
+            "brokerages": []
+        },
+        "summaryDetail": {
+            "maxAge": 1,
+            "priceHint": 2,
+            "previousClose": 45.81,
+            "open": 45.7,
+            "dayLow": 45.66,
+            "dayHigh": 45.76,
+            "regularMarketPreviousClose": 45.81,
+            "regularMarketOpen": 45.7,
+            "regularMarketDayLow": 45.66,
+            "regularMarketDayHigh": 45.76,
+            "volume": 429214,
+            "regularMarketVolume": 429214,
+            "averageVolume": 3287857,
+            "averageVolume10days": 5361230,
+            "averageDailyVolume10Day": 5361230,
+            "bid": 45.71,
+            "ask": 45.72,
+            "bidSize": 2900,
+            "askSize": 3000,
+            "yield": 0.026199998,
+            "totalAssets": 20364632064,
+            "fiftyTwoWeekLow": 43.12,
+            "fiftyTwoWeekHigh": 49.71,
+            "fiftyDayAverage": 45.7548,
+            "twoHundredDayAverage": 45.8057,
+            "trailingAnnualDividendRate": 0.0,
+            "trailingAnnualDividendYield": 0.0,
+            "navPrice": 45.74513,
+            "currency": "USD",
+            "fromCurrency": null,
+            "toCurrency": null,
+            "lastMarket": null,
+            "coinMarketCapLink": null,
+            "algorithm": null,
+            "tradeable": false
+        },
+        "pageViews": {
+            "shortTermTrend": "DOWN",
+            "midTermTrend": "UP",
+            "longTermTrend": "UP",
+            "maxAge": 1
+        },
+        "price": {
+            "maxAge": 1,
+            "preMarketSource": "FREE_REALTIME",
+            "regularMarketChangePercent": -0.0015280439,
+            "regularMarketChange": -0.069999695,
+            "regularMarketTime": "2023-03-21 10:37:11",
+            "priceHint": 2,
+            "regularMarketPrice": 45.74,
+            "regularMarketDayHigh": 45.76,
+            "regularMarketDayLow": 45.66,
+            "regularMarketVolume": 429214,
+            "averageDailyVolume10Day": 5361230,
+            "averageDailyVolume3Month": 3287857,
+            "regularMarketPreviousClose": 45.81,
+            "regularMarketSource": "FREE_REALTIME",
+            "regularMarketOpen": 45.7,
+            "exchange": "NGM",
+            "exchangeName": "NasdaqGM",
+            "exchangeDataDelayedBy": 0,
+            "marketState": "REGULAR",
+            "quoteType": "ETF",
+            "symbol": "IUSB",
+            "underlyingSymbol": null,
+            "shortName": "iShares Core Total USD Bond Mar",
+            "longName": "iShares Core Total USD Bond Market ETF",
+            "currency": "USD",
+            "quoteSourceName": "Nasdaq Real Time Price",
+            "currencySymbol": "$",
+            "fromCurrency": null,
+            "toCurrency": null,
+            "lastMarket": null
+        },
+        "defaultKeyStatistics": {
+            "maxAge": 1,
+            "priceHint": 2,
+            "category": null,
+            "ytdReturn": 0.025054099,
+            "beta3Year": 1.02,
+            "totalAssets": 20364632064,
+            "yield": 0.026199998,
+            "fundFamily": "iShares",
+            "fundInceptionDate": "2014-06-09 20:00:00",
+            "legalType": "Exchange Traded Fund",
+            "threeYearAverageReturn": -0.0009746,
+            "fiveYearAverageReturn": 0.0100674,
+            "lastSplitFactor": null
+        },
+        "summaryProfile": {
+            "phone": "1-800-474-2737",
+            "longBusinessSummary": "The fund will invest at least 80% of its assets in the component securities of the underlying index and to-be-announced transactions (\u201cTBAs\u201d) that have economic characteristics that are substantially identical to the economic characteristics of the component securities of the underlying index. The index measures the performance of U.S. dollar-denominated taxable bonds that are rated either investment-grade or high yield.",
+            "companyOfficers": [],
+            "maxAge": 86400
+        },
+        "topHoldings": {
+            "maxAge": 1,
+            "stockPosition": 0.0,
+            "bondPosition": 0.9517,
+            "holdings": [
+                {
+                    "symbol": "BISXX",
+                    "holdingName": "BISXX",
+                    "holdingPercent": 0.052547
+                }
+            ],
+            "equityHoldings": {
+                "priceToEarnings": 0.0,
+                "priceToBook": 0.0,
+                "priceToSales": 0.0,
+                "priceToCashflow": 0.0
+            },
+            "bondHoldings": {
+                "maturity": 89.51,
+                "duration": 3.04
+            },
+            "bondRatings": [
+                {
+                    "us_government": 0.4106
+                }
+            ],
+            "sectorWeightings": [
+                {
+                    "realestate": 0.0
+                },
+                {
+                    "consumer_cyclical": 0.0
+                },
+                {
+                    "basic_materials": 0.0
+                },
+                {
+                    "consumer_defensive": 0.0
+                },
+                {
+                    "technology": 0.0
+                },
+                {
+                    "communication_services": 0.0
+                },
+                {
+                    "financial_services": 0.0
+                },
+                {
+                    "utilities": 0.0
+                },
+                {
+                    "industrials": 0.0
+                },
+                {
+                    "energy": 0.0
+                },
+                {
+                    "healthcare": 0.0
+                }
+            ]
+        },
+        "fundPerformance": {
+            "maxAge": 1,
+            "performanceOverview": {
+                "asOfDate": "2023-03-19 20:00:00",
+                "ytdReturnPct": 0.025054099,
+                "oneYearTotalReturn": -0.0591258,
+                "threeYearTotalReturn": -0.0009746
+            },
+            "performanceOverviewCat": {},
+            "trailingReturns": {
+                "asOfDate": "2023-03-19 20:00:00",
+                "ytd": 0.025054099,
+                "oneMonth": 0.0113464,
+                "threeMonth": 0.0148894,
+                "oneYear": -0.0591258,
+                "threeYear": -0.0009746,
+                "fiveYear": 0.0100674,
+                "tenYear": 0.0,
+                "lastBullMkt": 0.0,
+                "lastBearMkt": 0.0
+            },
+            "trailingReturnsNav": {
+                "ytd": 0.025054099,
+                "oneMonth": 0.0113464,
+                "threeMonth": 0.0148894,
+                "oneYear": -0.0591258,
+                "threeYear": -0.0009746,
+                "fiveYear": 0.0100674,
+                "tenYear": 0.0
+            },
+            "trailingReturnsCat": {
+                "ytd": 0.0,
+                "oneMonth": 0.0,
+                "threeMonth": 0.0,
+                "oneYear": 0.0,
+                "threeYear": 0.0,
+                "fiveYear": 0.0,
+                "tenYear": 0.0,
+                "lastBullMkt": 0.0,
+                "lastBearMkt": 0.0
+            },
+            "annualTotalReturns": {
+                "returns": [
+                    {
+                        "year": "2022",
+                        "annualValue": -0.1304476
+                    },
+                    {
+                        "year": "2021",
+                        "annualValue": -0.013312
+                    },
+                    {
+                        "year": "2020",
+                        "annualValue": 0.076233104
+                    },
+                    {
+                        "year": "2019",
+                        "annualValue": 0.0913023
+                    },
+                    {
+                        "year": "2018",
+                        "annualValue": -0.0026816
+                    },
+                    {
+                        "year": "2017",
+                        "annualValue": 0.0382368
+                    },
+                    {
+                        "year": "2016",
+                        "annualValue": 0.0399848
+                    },
+                    {
+                        "year": "2015",
+                        "annualValue": 0.0042059002
+                    }
+                ],
+                "returnsCat": []
+            },
+            "pastQuarterlyReturns": {
+                "returns": []
+            },
+            "riskOverviewStatistics": {
+                "riskStatistics": [
+                    {
+                        "year": "5y",
+                        "alpha": 0.12,
+                        "beta": 0.99,
+                        "meanAnnualReturn": 0.07,
+                        "rSquared": 97.14,
+                        "stdDev": 5.37,
+                        "sharpeRatio": -0.12,
+                        "treynorRatio": -0.81
+                    },
+                    {
+                        "year": "3y",
+                        "alpha": 0.46,
+                        "beta": 1.02,
+                        "meanAnnualReturn": -0.27,
+                        "rSquared": 97.34,
+                        "stdDev": 6.26,
+                        "sharpeRatio": -0.68,
+                        "treynorRatio": -4.37
+                    },
+                    {
+                        "year": "10y",
+                        "alpha": 0.0,
+                        "beta": 0.0,
+                        "meanAnnualReturn": 0.0,
+                        "rSquared": 0.0,
+                        "stdDev": 0.0,
+                        "sharpeRatio": 0.0,
+                        "treynorRatio": 0.0
+                    }
+                ]
+            },
+            "riskOverviewStatisticsCat": {
+                "riskStatisticsCat": []
+            }
+        },
+        "quoteType": {
+            "exchange": "NGM",
+            "quoteType": "ETF",
+            "symbol": "IUSB",
+            "underlyingSymbol": "IUSB",
+            "shortName": "iShares Core Total USD Bond Mar",
+            "longName": "iShares Core Total USD Bond Market ETF",
+            "firstTradeDateEpochUtc": "2014-06-12 09:30:00",
+            "timeZoneFullName": "America/New_York",
+            "timeZoneShortName": "EDT",
+            "uuid": "b205ee34-7983-354f-b603-806f857b1329",
+            "messageBoardId": "finmb_266031808",
+            "gmtOffSetMilliseconds": -14400000,
+            "maxAge": 1
+        }
+    }
+}

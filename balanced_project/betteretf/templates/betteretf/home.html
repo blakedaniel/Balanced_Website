@@ -1,0 +1,25 @@
+{% extends 'betteretf/base.html' %}
+
+{% block head %}
+    <title>BetterETF</title>
+{% endblock %}
+
+{% block header %}
+<div class="container">
+    <h1>BetterETF</h1>
+</div>
+{% endblock %}
+
+{% block body %}
+<!-- input for ticker -->
+<div class="container">
+    <form action="{% url 'betteretf:home' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="ticker">Ticker</label>
+            <input type="text" class="form-control" id="ticker" name="ticker" placeholder="Enter ticker">
+        </div>
+        <button type="submit" class="">Submit</button>
+    </form>
+</div>
+{% endblock %}
