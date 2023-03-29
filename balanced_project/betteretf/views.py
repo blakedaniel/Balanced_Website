@@ -3,7 +3,6 @@ from django.shortcuts import get_object_or_404
 from betteretf.models import Fund, HoldingsBreakdown, SectorsBreakdown, ThreeYearHistory
 from django.views.generic import ListView, CreateView
 from betteretf.BulkYahooImportMngr import bulkStockImporter
-import yahooquery as yq
 
 
 def HomeView(request):
@@ -50,8 +49,11 @@ class tickerSearchView(fundCreateMixin, ListView):
                 return fund
             else:
                 # if ticker does not exist, create it
-                fund = self.createFund(ticker)
-                return fund
+                try:
+                    fund = self.createFund(ticker)
+                    return fund
+                except:
+                    return None
             
 class betterTickerView():
     """
