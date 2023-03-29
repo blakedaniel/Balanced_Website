@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+
+{% block title %}BetterETF{% endblock %}
+
+{% block search %}
+<div>
+    <form action="{% url 'ticker_search' %}" method="get">
+        {% csrf_token %}
+        <div>
+            <label for="ticker">Ticker</label>
+            <input type="text" name="ticker" placeholder="VOO, SPY, CHSW, etc." />
+        </div>
+        <div>
+            <button type="submit">Find</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block results %}
+<div>
+    <h2>Results</h2>
+    <ul>
+        <li>{% user_fund %}</li>
+    </ul>
+</div>
+{% endblock %}

@@ -1,8 +1,6 @@
-from datetime import datetime
 import yahooquery as yq
-from betteretf.models import Fund, HoldingsBreakdown, SectorsBreakdown, ThreeYearHistory
+from .models import Fund, HoldingsBreakdown, SectorsBreakdown, ThreeYearHistory
 from collections import defaultdict
-from django.apps import apps
 from django.db import transaction
 import pandas as pd
 
@@ -148,7 +146,10 @@ class bulkStockImporter(object):
 
         # remove problem tickers before proceeding
         for ticker in self.further_actions['for_removal']:
-            tickers.remove(ticker)
+            try:
+                tickers.remove(ticker)
+            except:
+                continue
 
         details = defaultdict(list)
         for ticker in tickers:

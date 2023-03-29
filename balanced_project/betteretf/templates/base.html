@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css %}
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
     {% block head %}
     {% endblock %}
 </head>
@@ -13,7 +17,12 @@
 </header>
 
 <body>
-    {% block body %}
+    <!-- input for ticker search -->
+    {% block search %}
+    {% endblock %}
+
+    <!-- ticker search results -->
+    {% block results %}
     {% endblock %}
 </body>
 

@@ -34,18 +34,15 @@ from balanced.views import ThreeYearHistoryView, ThreeYearHistoryCreateView
 from balanced.views import YahooRawView, YahooRawCreateView
 from betteretf.views import HomeView
 
+# admin urls
 urlpatterns = [
     path("admin/", admin.site.urls),
 ]
 
-
-# adds the translibrary app to pattern matching
-# makes /translibrary/ the index/home page via redirect
+# betteretf urls
 urlpatterns += [
-    path('betteretf/', HomeView),
-    path('', RedirectView.as_view(url='api/', permanent=True)),
+    path('betteretf/', include('betteretf.urls')),
 ]
-
 
 # used to let the development server serve static files like css, java, images, etc.
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

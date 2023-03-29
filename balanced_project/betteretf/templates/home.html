@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}BetterETF{% endblock %}
+
+{% block header %}
+<div class="container">
+    <h1>BetterETF</h1>
+</div>
+{% endblock %}
+
+<!-- input for ticker search -->
+{% block search %}
+<div>
+    <form action="{% url 'ticker_search' %}" method="get">
+        {% csrf_token %}
+        <div>
+            <label for="ticker">Ticker</label>
+            <input type="text" name="ticker" placeholder="VOO, SPY, CHSW, etc." />
+        </div>
+        <div>
+            <button type="submit">Find</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+<!-- ticker search results -->
+{% block results %}
+<div>
+    <h2>Results</h2>
+    <ul>
+        {% if user_fund %}
+            <li><strong>Ticker</strong>: {{ user_fund.0.ticker }}</li>
+            <li><strong>Name</strong>: {{ user_fund.0.name }}</li>
+            <li><strong>Category</strong>: {{ user_fund.0.category }}</li>
+            <li><strong>Expense Ratio</strong>: {{ user_fund.0.exp_ratio }}</li>
+            <li><strong>Beta</strong>: {{ user_fund.0.beta }}</li>
+        {% else %}
+            <li>No results found</li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,8 +1,5 @@
 from django.db import models
 
-
-
-
 class YahooRaw(models.Model):
     ticker = models.CharField(max_length=8, unique=True)
     data = models.TextField()
