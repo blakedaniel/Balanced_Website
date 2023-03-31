@@ -25,6 +25,8 @@ def fundHolders(fund_ticker):
             fund = fund.get('organization')
             if fund is not None:
                 fund = yq.search(fund, first_quote=True)
-                funds.add(fund.get('symbol'))
+                fund = fund.get('symbol')
+                if fund != None
+                    funds.add(fund)
 
     return funds
