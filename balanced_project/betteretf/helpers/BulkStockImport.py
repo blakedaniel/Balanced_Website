@@ -1,10 +1,13 @@
 import yahooquery as yq
-from .models import Fund, HoldingsBreakdown, SectorsBreakdown, ThreeYearHistory
+from betteretf.models import Fund, HoldingsBreakdown, SectorsBreakdown, ThreeYearHistory
 from collections import defaultdict
 from django.db import transaction
 import pandas as pd
 
-class bulkStockImporter(object):
+# TODO: move this to helpers folder
+# TODO: add error handling throughout
+
+class importer(object):
     def __init__(self):
         self.chunk_size = 500
         self.further_actions = defaultdict(list)
@@ -59,6 +62,11 @@ class bulkStockImporter(object):
             tickers = self.tickers
 
         funds = []
+        # update to take advantage of asyncronous search and rather than
+        # starting the for loop here, use yq.Ticker([list of tickers]),
+        # and using the module pull below. this is a faster that searching
+        # for each one individually
+        # modules = 'quoteType key_stats fund_performance fund_profile'
         for ticker in tickers:
             response = yq.Ticker(ticker)
             if Fund.objects.filter(ticker = ticker).exists():
@@ -179,12 +187,47 @@ class bulkStockImporter(object):
         print('\nTicker details have been completed.')
 
 
-    def bulkImport(self, tickers=None):
+    def fundHolders(self, fund_ticker):
+        fund = yq.Ticker(fund_ticker)  # set initial fund
+        # pull top ten equities/funds holdings that make up the fund
+        holding_tickers = [ticker for ticker in fund.fund_top_holdings['symbol']]
+        # pull list of data on each holding equity/fund
+        holding_funds = yq.Ticker(holding_tickers, asynchronous=True)
+        # get quoteType and Holdingers for each ticker
+        holding_funds = holding_funds.get_modules('quoteType fundOwnership')
+        holding_funds = map(holding_funds.get, holding_tickers)
+
+        # pull out quoteType
+        func = lambda holding: holding.get('quoteType', {}).get('quoteType', {})
+        quote_types = map(func, holding_funds)
+        # zip up to ticker, and only go to next phase on those that are Equity
+
+        #pull out owners
+        func = lambda holding: holding.get('fundOwnership', {}).get('ownershipList', {})
+        fund_owners = map(func, holding_funds)
+
+        funds = set()
+        for fund_owner in fund_owners:
+            for fund in fund_owner:
+                fund = fund.get('organization')
+                if fund is not None:
+                    fund = yq.search(fund, first_quote=True)
+                    funds.add(fund.get('symbol'))
+        breakpoint()
+        return funds
+
+
+    def bulkImport(self, tickers=None, holders=False):
         """
         Bulk import tickers and details to database.
         """
         if tickers is None:
+            breakpoint ()
             tickers = set(self.tickers)
+
+        if holders:
+            holder_funds = map(self.fundHolders, tickers)
+            tickers.update(holder_funds)
 
         self.createTickers(tickers)
         self.createTickerDetails(tickers)
