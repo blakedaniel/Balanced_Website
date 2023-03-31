@@ -213,7 +213,7 @@ class importer(object):
                 if fund is not None:
                     fund = yq.search(fund, first_quote=True)
                     funds.add(fund.get('symbol'))
-        breakpoint()
+        breakpoint
         return funds
 
 

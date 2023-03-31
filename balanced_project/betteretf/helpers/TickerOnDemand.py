@@ -1,4 +1,5 @@
 import yahooquery as yq
+from itertools import count
 
 def fundHolders(fund_ticker):
     fund = yq.Ticker(fund_ticker)  # set initial fund
@@ -25,8 +26,16 @@ def fundHolders(fund_ticker):
             fund = fund.get('organization')
             if fund is not None:
                 fund = yq.search(fund, first_quote=True)
+<<<<<<< HEAD
                 fund = fund.get('symbol')
                 if fund != None
                     funds.add(fund)
+=======
+                if fund == None:
+                    # do sometime here to identify what ticker or search response is causing this
+                funds.add(fund.get('symbol'))
+>>>>>>> 13b2baa (addressed None error)
 
     return funds
+
+fundHolders('VOO')
