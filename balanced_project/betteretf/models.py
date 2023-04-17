@@ -2,18 +2,42 @@ from django.db import models
 
 class YahooRaw(models.Model):
     ticker = models.CharField(max_length=8, unique=True)
-    data = models.TextField()
-    three_year_history = models.JSONField()
+    fund_performance = models.JSONField()
+    default_key_statistics = models.JSONField()
+    fund_profile = models.JSONField()
+    top_holdings = models.JSONField()
+
+    def __str__(self):
+        return f'{self.ticker}'
+    
+    def __repr__(self):
+        return f'{self.ticker}'
+    
+    def convertToFund(self):
+        """
+        Convert the raw data to a fund model
+        """
+        fund = Fund()
+        fund.ticker = self.ticker
+
+        
+
+        fund.name = self.fund_profile.get('longName', '')
+        fund.quote_type = self.fund_profile.get('quoteType', '')
+        fund.category = self.fund_profile.get('category', '')
+        fund.beta = self.default_key_statistics.get('beta', None)
+        fund.exp_ratio = self.fund_profile.get('expenseRatio', None)
+        return fund
 
 
 class Fund(models.Model):
     ticker = models.CharField(max_length=8, unique=True)
     name = models.CharField(max_length=250)
-    type = models.CharField(max_length=50)
+    quote_type = models.CharField(max_length=50)
     category = models.CharField(max_length=100, null=True, blank=True)
     beta = models.DecimalField(
         max_digits=5, decimal_places=2, blank=True, null=True)
-    exp_ratio = models.DecimalField(max_digits=5, decimal_places=4)
+    exp_ratio = models.DecimalField(max_digits=5, decimal_places=4, null=True)
     # update cat fields so they are boolean -- new purpose for them
     # is whether the data exists in the database; meant to highlight 
     # what etfs have been pulled from yahoo

@@ -3,11 +3,11 @@ from betteretf.models import Fund, HoldingsBreakdown, SectorsBreakdown, ThreeYea
 from collections import defaultdict
 from django.db import transaction
 import pandas as pd
+import asyncio
 
-# TODO: move this to helpers folder
 # TODO: add error handling throughout
 
-class importer(object):
+class Importer(object):
     def __init__(self):
         self.chunk_size = 500
         self.further_actions = defaultdict(list)
@@ -34,22 +34,34 @@ class importer(object):
 
 
     def _createTicker(self, fund_ticker, response):
-        try:
-            name = response.quote_type[fund_ticker]['shortName']
-            type = response.quote_type[fund_ticker]['quoteType']
-            category = response.key_stats[fund_ticker]['category']
-            beta = response.fund_performance[fund_ticker]['riskOverviewStatistics']['riskStatistics'][0]['beta']
-            exp_ratio = response.fund_profile[fund_ticker]['feesExpensesInvestment']['annualReportExpenseRatio']
-            print(f'Fund created for ticker: {fund_ticker}')
-        except:
-            print(f'Error creating initial ticker: {fund_ticker}')
-            return 'error'
+        name = None
+        quote_type = None
+        category = None
+        beta = None
+        exp_ratio = None
+
+
+        if isinstance(dict, response.quote_type[fund_ticker]):
+            name = response.quote_type[fund_ticker].get('shortName', None)
+            quote_type = response.quote_type[fund_ticker].get('quoteType', None)
+        
+        if isinstance(dict, response.key_stats[fund_ticker]):
+            category = response.key_stats[fund_ticker].get('category', None)
+            
+        if isinstance(dict, response.fund_performance[fund_ticker]):
+            beta = response.fund_performance[fund_ticker].get('riskOverviewStatistics', {}).get('riskStatistics', {})[0].get('beta', None)
+            
+        if isinstance(dict, response.fund_profile[fund_ticker]):
+            exp_ratio = response.fund_profile[fund_ticker].get('feesExpensesInvestment', {}).get('annualReportExpenseRatio', None)
+            
+        print(f'Fund created for ticker: {fund_ticker}')
+
         fund= Fund(ticker = fund_ticker,
-                name = name,
-                type = type,
-                category = category,
-                beta = beta,
-                exp_ratio = exp_ratio)
+                   name = name,
+                   quote_type = quote_type,
+                   category = category,
+                   beta = beta,
+                   exp_ratio = exp_ratio)
         return [fund]
 
     @transaction.atomic
@@ -60,13 +72,8 @@ class importer(object):
         """
         if tickers is None:
             tickers = self.tickers
-
+    
         funds = []
-        # update to take advantage of asyncronous search and rather than
-        # starting the for loop here, use yq.Ticker([list of tickers]),
-        # and using the module pull below. this is a faster that searching
-        # for each one individually
-        # modules = 'quoteType key_stats fund_performance fund_profile'
         for ticker in tickers:
             response = yq.Ticker(ticker)
             if Fund.objects.filter(ticker = ticker).exists():
@@ -84,14 +91,15 @@ class importer(object):
 
 
     def _createHoldings(self, fund_ticker, response):
-        h = []
+        h = None
         try:
             holdings = response.fund_top_holdings[['symbol', 'holdingPercent']]
             print(f'HoldingsBreakdown created for ticker: {fund_ticker}')
-        except KeyError:
+        except:
             print(f'No holdings data: {fund_ticker}')
             return h
         holdings = holdings.to_dict('index')
+        h = []
         for k, v in holdings.items():
             holding = HoldingsBreakdown(ticker = Fund.objects.get(ticker = fund_ticker),
                                         holding_ticker = v['symbol'],
@@ -101,12 +109,14 @@ class importer(object):
 
 
     def _createSectors(self, fund_ticker, response):
-        try:
+        sectors = response.fund_sector_weightings
+        if type(sectors[fund_ticker]) != type({}):
+            print(f'No sector data: {fund_ticker}')
+            return None
+        else:
             sectors = response.fund_sector_weightings
             print(f'SectorsBreakdown created for ticker: {fund_ticker}')
-        except:
-            print(f'No sector data: {fund_ticker}')
-            return []
+            return sectors
         sectors = sectors.to_dict('index')
         sector = SectorsBreakdown(ticker = Fund.objects.get(ticker = fund_ticker),
                                     basic_materials = sectors['basic_materials'][fund_ticker],
@@ -124,11 +134,11 @@ class importer(object):
 
 
     def _createHistory(self, fund_ticker, response):
-        h = []
-        try:
+        h = None
+        if isinstance(dict, response.history(start='2019-01-01', end='2022-12-31')[fund_ticker]):
             history = response.history(start='2019-01-01', end='2022-12-31')[['open', 'high', 'low', 'close']]
             print(f'ThreeYearHistory created for ticker: {fund_ticker}')
-        except:
+        else:
             print(f'No history data: {fund_ticker}')
             return h
         history = history.to_dict('index')
@@ -167,19 +177,28 @@ class importer(object):
                 print('HoldingsBreakdown already exists for ticker: {}'.format(ticker))
             else:
                 holdings = self._createHoldings(ticker, response)
-                details['holdings'].extend(holdings)
+                if holdings == None:
+                    details['holdings'].extend([])
+                else:
+                    details['holdings'].extend(holdings)
 
             if SectorsBreakdown.objects.filter(ticker = ticker).exists():
                 print('SectorsBreakdown already exists for ticker: {}'.format(ticker))
             else:
                 sectors = self._createSectors(ticker, response)
-                details['sectors'].extend(sectors)
+                if sectors == None:
+                    details['sectors'].extend([])
+                else:
+                    details['sectors'].extend(sectors)
                 
             if ThreeYearHistory.objects.filter(ticker = ticker).exists():
                 print('ThreeYearHistory already exists for ticker: {}'.format(ticker))
             else:
                 history = self._createHistory(ticker, response)
-                details['history'].extend(history)
+                if history == None:
+                    details['history'].extend([])
+                else:
+                    details['history'].extend(history)
         
         HoldingsBreakdown.objects.bulk_create(details['holdings'], batch_size=self.chunk_size)
         SectorsBreakdown.objects.bulk_create(details['sectors'], batch_size=self.chunk_size)
@@ -198,12 +217,12 @@ class importer(object):
         holding_funds = map(holding_funds.get, holding_tickers)
 
         # pull out quoteType
-        func = lambda holding: holding.get('quoteType', {}).get('quoteType', {})
+        def func(holding): holding.get('quoteType', {}).get('quoteType', {})
         quote_types = map(func, holding_funds)
         # zip up to ticker, and only go to next phase on those that are Equity
 
         #pull out owners
-        func = lambda holding: holding.get('fundOwnership', {}).get('ownershipList', {})
+        def func(holding): holding.get('fundOwnership', {}).get('ownershipList', {})
         fund_owners = map(func, holding_funds)
 
         funds = set()
@@ -213,7 +232,6 @@ class importer(object):
                 if fund is not None:
                     fund = yq.search(fund, first_quote=True)
                     funds.add(fund.get('symbol'))
-        breakpoint
         return funds
 
 
@@ -222,12 +240,26 @@ class importer(object):
         Bulk import tickers and details to database.
         """
         if tickers is None:
-            breakpoint ()
             tickers = set(self.tickers)
+        else:
+            tickers = set(tickers)
 
         if holders:
-            holder_funds = map(self.fundHolders, tickers)
-            tickers.update(holder_funds)
+            try:
+                holder_funds = map(self.fundHolders, tickers)
+                merge_tickers = tickers.copy()
+                for funds in holder_funds:
+                    merge_tickers.update(funds)
+                tickers.update(merge_tickers)
+                tickers.remove(None)  # need to identify why None is entering set
+                # tickers.update(holder_funds)
+            except KeyError:
+                print('Error while searching for holder information')
+            finally:
+                self.createTickers(tickers)
+                self.createTickerDetails(tickers)
+                return
 
         self.createTickers(tickers)
         self.createTickerDetails(tickers)
+        return

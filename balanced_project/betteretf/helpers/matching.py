@@ -1,4 +1,5 @@
 from betteretf.models import Fund, HoldingsBreakdown, SectorsBreakdown
+from django.shortcuts import HttpResponse
 
 # match a given user_fund object to funds in the database where...
 # user_fund.beta * .99 < fund.beta < user_fund.beta * 1.01
@@ -11,18 +12,36 @@ class matcher(object):
         """
         when initializing, user_fund is a Fund object
         """
+        self.match_criteria_filter = set()
         self.user_fund = user_fund
-        self.user_holdings = user_fund.holdings.all()
-        self.user_sectors = user_fund.sectors
-        self.user_beta = user_fund.beta
-        self.user_exp_ratio = user_fund.exp_ratio
+
+        try:
+            self.user_holdings = user_fund.holdings.all()
+            if len(self.user_holdings) > 0:
+                self.match_criteria_filter.add(self.holdings_match)
+        except:
+            HttpResponse(f'Error finding holdings for: {user_fund}')
+        try:
+            self.user_sectors = user_fund.sectors
+        except:
+            HttpResponse(f'Error finding sectors for: {user_fund}')
+        try:
+            self.user_beta = user_fund.beta
+            self.match_criteria_filter.add(self.beta_match)
+        except:
+            HttpResponse(f'Error finding beta for: {user_fund}')
+        try:
+            self.user_exp_ratio = user_fund.exp_ratio
+            self.match_criteria_filter.add(self.exp_ratio_match)
+        except:
+            HttpResponse(f'Error finding expense ratio for: {user_fund}')
 
 
     def beta_match(self, funds=Fund.objects.all()):
         """
         filter for funds with beta within 1% of user_fund.beta
         """
-        return funds.filter(beta__gte=float(self.user_beta) * .99, beta__lte=float(self.user_beta) * 1.01)
+        return funds.filter(beta__gte=float(self.user_beta) * .97, beta__lte=float(self.user_beta) * 1.03)
     
     def exp_ratio_match(self, funds=Fund.objects.all()):
         """
@@ -40,6 +59,7 @@ class matcher(object):
             fund_holdings = set([holding.holding_ticker for holding in fund.holdings.all()])
             if len(user_fund_holdings.intersection(fund_holdings)) / len(user_fund_holdings) > .75:
                 funds_holdings.append(fund)
+        funds_holdings = Fund.objects.filter(ticker__in=[fund.ticker for fund in funds_holdings])
         return funds_holdings
 
     def sectors_match(self, funds=Fund.objects.all()):
@@ -48,17 +68,17 @@ class matcher(object):
         """
         pass
 
-    def match(self, cap=10, funds=Fund.objects.all()):
+    def match(self, cap=3, funds=Fund.objects.all()):
         """
         return a list of funds that match user_fund
         """
         funds = funds.exclude(ticker=self.user_fund.ticker)
-        matched_funds = self.beta_match(funds)
-        matched_funds = self.exp_ratio_match(matched_funds)
-        matched_funds = self.holdings_match(matched_funds)
-        matched_funds.sort(key=lambda x: x.exp_ratio)
+        for filter in self.match_criteria_filter:
+            matched_funds = filter(funds)
+        if matched_funds.exists():
+            matched_funds = matched_funds.order_by('exp_ratio')
 
         # limit the number of funds returned
-        cap = min(len(matched_funds) - 1, cap)
+        cap = min(max(len(matched_funds) - 1, 0), cap)
         matched_funds = matched_funds[:cap]
         return matched_funds

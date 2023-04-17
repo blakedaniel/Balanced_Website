@@ -6,7 +6,7 @@ from .models import Fund, HoldingsBreakdown, SectorsBreakdown, ThreeYearHistory
 
 @admin.register(Fund)
 class FundAdmin(admin.ModelAdmin):
-    list_display = ('ticker', 'name', 'type', 'category', 'beta', 'exp_ratio')
+    list_display = ('ticker', 'name', 'quote_type', 'category', 'beta', 'exp_ratio')
 
 
 @admin.register(HoldingsBreakdown)

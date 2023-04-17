@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,8 +26,8 @@ SECRET_KEY = "django-insecure-ogl4r_5!c_i#7bl=!e_@j2iz%)sz=-63q2e4$%zt4w8vcvc7_)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS =['http://localhost*']
+ALLOWED_HOSTS = ['balanced.fly.dev', 'localhost', '127.0.0.1', 'localhost', '0.0.0.0']
+CSRF_TRUSTED_ORIGINS = ['http://localhost*', 'http://balanced.fly.dev*', 'https://balanced.fly.dev']
 
 # Application definition
 
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -76,18 +78,26 @@ WSGI_APPLICATION = "balanced.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='postgres://balanced:klOQ1tMKttWeMsu@balanced-db.flycast:5432/balanced?sslmode=disable',
+#         conn_max_age=600,
+#         conn_health_checks=True,
+#     )
+# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB'),  # pull db name from docker-compose.yml
-        'USER': os.environ.get('POSTGRES_USER'),  # pull user from docker-compose.yml
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),  # pull password from docker-compose.yml
-        'HOST': os.environ.get('POSTGRES_HOST'),  # pull host from docker-compose.yml
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER_LOCAL'),
+        # 'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST_LOCAL'),
+        # 'HOST': os.getenv('POSTGRES_HOST'),
         'PORT': '5432',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -122,7 +132,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = "static/"
+# STATICFILES_STORAGE = 'whitenoise.storage.CompresseManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

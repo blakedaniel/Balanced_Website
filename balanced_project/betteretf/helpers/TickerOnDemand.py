@@ -12,12 +12,12 @@ def fundHolders(fund_ticker):
     holding_funds = map(holding_funds.get, holding_tickers)
 
     # pull out quoteType
-    func = lambda holding: holding.get('quoteType', {}).get('quoteType', {})
+    def func(holding): holding.get('quoteType', {}).get('quoteType', {})
     quote_types = map(func, holding_funds)
     # zip up to ticker, and only go to next phase on those that are Equity
 
     #pull out owners
-    func = lambda holding: holding.get('fundOwnership', {}).get('ownershipList', {})
+    def func(holding): holding.get('fundOwnership', {}).get('ownershipList', {})
     fund_owners = map(func, holding_funds)
 
     funds = set()
@@ -26,15 +26,9 @@ def fundHolders(fund_ticker):
             fund = fund.get('organization')
             if fund is not None:
                 fund = yq.search(fund, first_quote=True)
-<<<<<<< HEAD
                 fund = fund.get('symbol')
-                if fund != None
+                if fund != None:
                     funds.add(fund)
-=======
-                if fund == None:
-                    # do sometime here to identify what ticker or search response is causing this
-                funds.add(fund.get('symbol'))
->>>>>>> 13b2baa (addressed None error)
 
     return funds
 
