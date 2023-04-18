@@ -42,6 +42,7 @@ urlpatterns = [
 # betteretf urls
 urlpatterns += [
     path('betteretf/', include('betteretf.urls')),
+    path('', RedirectView.as_view(url='/betteretf/')),
 ]
 
 # used to let the development server serve static files like css, java, images, etc.

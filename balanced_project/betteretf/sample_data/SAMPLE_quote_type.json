@@ -1,0 +1,15 @@
+{
+    "uuid": "367519e5-61d9-3b17-9298-4635221f9752",
+    "maxAge": 1,
+    "symbol": "VOO",
+    "exchange": "PCX",
+    "longName": "Vanguard 500 Index Fund",
+    "quoteType": "ETF",
+    "shortName": "Vanguard S&P 500 ETF",
+    "messageBoardId": "finmb_28117396",
+    "timeZoneFullName": "America/New_York",
+    "underlyingSymbol": "VOO",
+    "timeZoneShortName": "EDT",
+    "gmtOffSetMilliseconds": -14400000,
+    "firstTradeDateEpochUtc": "2010-09-09 13:30:00"
+}

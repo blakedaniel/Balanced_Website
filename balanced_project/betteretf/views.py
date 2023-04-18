@@ -1,10 +1,8 @@
 from django.shortcuts import get_object_or_404, HttpResponse, render
-from betteretf.models import Fund, HoldingsBreakdown, SectorsBreakdown, ThreeYearHistory
+from betteretf.models import Fund, YahooRaw
 from django.views.generic import ListView, CreateView
-from betteretf.helpers.BulkStockImport import Importer
 from betteretf.helpers.matching import matcher
 from betteretf.helpers.ImportYahooRaw import importYahooRaw
-from asgiref.sync import sync_to_async
 
 
 def HomeView(request):
@@ -25,22 +23,18 @@ class fundCreateMixin():
         pull data from yahoo finance and write it to YahooRaw,
         then related convert YahooRaw objects to Fund objects,
         then return the Fund object
-        param ticker: ticker of the fund to be created
-        return: Fund object
+        @param ticker: ticker of the fund to be created
+        @return: Fund object
         """
-        bsi = Importer()
-        # create a new ticker
-        bsi.bulkImport([ticker], holders=True)
 
-        # get the ticker from the database
-        fund = Fund.objects.get(ticker=ticker)
-        # search for similar tickers
-        import_related = importYahooRaw().graphImport([ticker])
-        # search through yahoo raw data for similar tickers
-        # import related tickers into Fund model
-        # get similar tickers and return them
-        
-        return fund
+        # execute ImportYahooRaw
+        importer = importYahooRaw()
+        tickers = importer.graphImport(ticker)
+        # convert YahooRaw objects to Fund objects
+        imported_funds = YahooRaw.objects.filter(ticker__in=tickers)
+        converted_funds = map(lambda x: x.convertToFund(), imported_funds)
+        converted_funds = [*converted_funds]
+
     # take input from user
 
 class tickerMatchMixin():
@@ -72,17 +66,14 @@ class tickerSearchView(fundCreateMixin, tickerMatchMixin, ListView):
         ticker = self.request.GET.get('ticker')
         # if fund of ticker is not None, filter the queryset
         if ticker is not None:
+            ticker = ticker.upper()
             fund  = Fund.objects.filter(ticker=ticker)
             if fund.exists():
                 return fund
             else:
-                # if fund of ticker does not exist, create it
-            # try:
-                fund = self.createFund(ticker)
+                self.createFund(ticker)
+                fund  = Fund.objects.filter(ticker=ticker)
                 return fund
-            # except:
-            #     HttpResponse('Error creating new fund')
-            #     return None
 
             
     def get_context_data(self, **kwargs):
