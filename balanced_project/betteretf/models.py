@@ -1,7 +1,9 @@
 from django.db import models
+from django.db.models.functions import Coalesce
 
 class YahooRaw(models.Model):
     ticker = models.CharField(max_length=8, unique=True)
+    quote_type = models.JSONField()
     fund_performance = models.JSONField()
     default_key_statistics = models.JSONField()
     fund_profile = models.JSONField()
@@ -17,16 +19,22 @@ class YahooRaw(models.Model):
         """
         Convert the raw data to a fund model
         """
-        fund = Fund()
-        fund.ticker = self.ticker
+        org_fund = YahooRaw.objects.filter(ticker=self.ticker)
+        org_fund = org_fund.values('quote_type__shortName',
+                              'quote_type__quoteType',
+                              'fund_profile__categoryName',
+                              'default_key_statistics__beta3Year',
+                              'fund_profile__feesExpensesInvestment__annualReportExpenseRatio'
+                              ).first()
 
-        
-
-        fund.name = self.fund_profile.get('longName', '')
-        fund.quote_type = self.fund_profile.get('quoteType', '')
-        fund.category = self.fund_profile.get('category', '')
-        fund.beta = self.default_key_statistics.get('beta', None)
-        fund.exp_ratio = self.fund_profile.get('expenseRatio', None)
+        fund = Fund.objects.update_or_create(
+            ticker=self.ticker,
+            name = org_fund['quote_type__shortName'],
+            quote_type = org_fund['quote_type__quoteType'],
+            category = org_fund['fund_profile__categoryName'],
+            beta = org_fund['default_key_statistics__beta3Year'],
+            exp_ratio = org_fund['fund_profile__feesExpensesInvestment__annualReportExpenseRatio'],
+        )
         return fund
 
 

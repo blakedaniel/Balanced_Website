@@ -1,0 +1,24 @@
+{
+    "family": "Vanguard",
+    "maxAge": 1,
+    "legalType": "Exchange Traded Fund",
+    "brokerages": [],
+    "styleBoxUrl": "https://s.yimg.com/lq/i/fi/3_0stylelargeeq2.gif",
+    "categoryName": "Large Blend",
+    "managementInfo": {
+        "managerBio": null,
+        "managerName": null
+    },
+    "feesExpensesInvestment": {
+        "totalNetAssets": 188911.73,
+        "projectionValues": {},
+        "annualHoldingsTurnover": 0.02,
+        "annualReportExpenseRatio": 0.00029999999
+    },
+    "feesExpensesInvestmentCat": {
+        "totalNetAssets": 188911.73,
+        "projectionValuesCat": {},
+        "annualHoldingsTurnover": 50.76,
+        "annualReportExpenseRatio": 0.0036000002
+    }
+}

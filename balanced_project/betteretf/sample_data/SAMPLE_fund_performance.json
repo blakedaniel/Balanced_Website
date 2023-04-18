@@ -1,0 +1,258 @@
+{
+    "maxAge": 1,
+    "trailingReturns": {
+        "ytd": 0.0831119,
+        "oneYear": -0.0420784,
+        "tenYear": 0.1213272,
+        "asOfDate": "2023-04-14 00: 00: 00",
+        "fiveYear": 0.1116345,
+        "oneMonth": 0.0571745,
+        "threeYear": 0.15067351,
+        "threeMonth": 0.0390752,
+        "lastBearMkt": 0.0,
+        "lastBullMkt": 0.0
+    },
+    "annualTotalReturns": {
+        "returns": [
+            {
+                "year": "2022",
+                "annualValue": -0.1818578
+            },
+            {
+                "year": "2021",
+                "annualValue": 0.2877803
+            },
+            {
+                "year": "2020",
+                "annualValue": 0.1829232
+            },
+            {
+                "year": "2019",
+                "annualValue": 0.3135493
+            },
+            {
+                "year": "2018",
+                "annualValue": -0.0450316
+            },
+            {
+                "year": "2017",
+                "annualValue": 0.2177179
+            },
+            {
+                "year": "2016",
+                "annualValue": 0.121723406
+            },
+            {
+                "year": "2015",
+                "annualValue": 0.0131481
+            },
+            {
+                "year": "2014",
+                "annualValue": 0.1354903
+            },
+            {
+                "year": "2013",
+                "annualValue": 0.32394618
+            },
+            {
+                "year": "2012",
+                "annualValue": 0.1599885
+            },
+            {
+                "year": "2011",
+                "annualValue": 0.018942099
+            }
+        ],
+        "returnsCat": [
+            {
+                "year": "2015",
+                "annualValue": -0.0063223
+            },
+            {
+                "year": "2014",
+                "annualValue": 0.1178567
+            },
+            {
+                "year": "2013",
+                "annualValue": 0.3143698
+            },
+            {
+                "year": "2012",
+                "annualValue": 0.1421203
+            },
+            {
+                "year": "2011",
+                "annualValue": 0.016827399
+            },
+            {
+                "year": "2010",
+                "annualValue": 0.17790991
+            },
+            {
+                "year": "2009",
+                "annualValue": 0.322644
+            },
+            {
+                "year": "2008",
+                "annualValue": -0.38047272
+            },
+            {
+                "year": "2007",
+                "annualValue": 0.044018798
+            },
+            {
+                "year": "2006",
+                "annualValue": 0.1554867
+            },
+            {
+                "year": "2005",
+                "annualValue": 0.0468473
+            },
+            {
+                "year": "2004",
+                "annualValue": 0.1255366
+            },
+            {
+                "year": "2003",
+                "annualValue": 0.2909224
+            },
+            {
+                "year": "2002",
+                "annualValue": -0.17842369
+            },
+            {
+                "year": "2001",
+                "annualValue": -0.057511102
+            },
+            {
+                "year": "2000",
+                "annualValue": -0.052431203
+            },
+            {
+                "year": "1999",
+                "annualValue": 0.1598289
+            },
+            {
+                "year": "1998",
+                "annualValue": 0.2835127
+            },
+            {
+                "year": "1997",
+                "annualValue": 0.33063492
+            },
+            {
+                "year": "1996",
+                "annualValue": 0.22740379
+            },
+            {
+                "year": "1995",
+                "annualValue": 0.3722677
+            },
+            {
+                "year": "1994",
+                "annualValue": 0.011552599
+            }
+        ]
+    },
+    "trailingReturnsCat": {
+        "ytd": 0.075,
+        "oneYear": 0.1345,
+        "tenYear": 0.0733,
+        "fiveYear": 0.1576,
+        "oneMonth": -0.0025,
+        "threeYear": 0.1014,
+        "threeMonth": 0.032,
+        "lastBearMkt": 0.0,
+        "lastBullMkt": 0.0
+    },
+    "trailingReturnsNav": {
+        "ytd": 0.0831119,
+        "oneYear": -0.0420784,
+        "tenYear": 0.1213272,
+        "fiveYear": 0.1116345,
+        "oneMonth": 0.0571745,
+        "threeYear": 0.15067351,
+        "threeMonth": 0.0390752
+    },
+    "performanceOverview": {
+        "asOfDate": "2023-04-14 00: 00: 00",
+        "ytdReturnPct": 0.0831119,
+        "oneYearTotalReturn": -0.0420784,
+        "threeYearTotalReturn": 0.15067351
+    },
+    "pastQuarterlyReturns": {
+        "returns": []
+    },
+    "performanceOverviewCat": {
+        "ytdReturnPct": 0.075,
+        "fiveYrAvgReturnPct": 0.1576
+    },
+    "riskOverviewStatistics": {
+        "riskStatistics": [
+            {
+                "beta": 1.0,
+                "year": "5y",
+                "alpha": -0.04,
+                "stdDev": 18.64,
+                "rSquared": 100.0,
+                "sharpeRatio": 0.58,
+                "treynorRatio": 9.64,
+                "meanAnnualReturn": 1.03
+            },
+            {
+                "beta": 1.0,
+                "year": "3y",
+                "alpha": -0.04,
+                "stdDev": 19.23,
+                "rSquared": 100.0,
+                "sharpeRatio": 0.92,
+                "treynorRatio": 17.4,
+                "meanAnnualReturn": 1.58
+            },
+            {
+                "beta": 1.0,
+                "year": "10y",
+                "alpha": -0.04,
+                "stdDev": 14.85,
+                "rSquared": 100.0,
+                "sharpeRatio": 0.79,
+                "treynorRatio": 11.26,
+                "meanAnnualReturn": 1.06
+            }
+        ]
+    },
+    "riskOverviewStatisticsCat": {
+        "riskStatisticsCat": [
+            {
+                "beta": 1.0,
+                "year": "5y",
+                "alpha": -0.48,
+                "stdDev": 11.38,
+                "rSquared": 95.34,
+                "sharpeRatio": 1.34,
+                "treynorRatio": 15.73,
+                "meanAnnualReturn": 1.28
+            },
+            {
+                "beta": 0.98,
+                "year": "3y",
+                "alpha": -0.65,
+                "stdDev": 10.9,
+                "rSquared": 94.06,
+                "sharpeRatio": 0.94,
+                "treynorRatio": 10.38,
+                "meanAnnualReturn": 0.86
+            },
+            {
+                "beta": 1.0,
+                "year": "10y",
+                "alpha": 0.15,
+                "stdDev": 15.42,
+                "rSquared": 96.99,
+                "sharpeRatio": 0.48,
+                "treynorRatio": 6.54,
+                "meanAnnualReturn": 0.69
+            }
+        ]
+    }
+}
