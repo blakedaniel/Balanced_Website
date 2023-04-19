@@ -1,4 +1,4 @@
-from betteretf.models import Fund, HoldingsBreakdown, SectorsBreakdown
+from betteretf.models import Fund
 from django.shortcuts import HttpResponse
 
 # match a given user_fund object to funds in the database where...
@@ -39,9 +39,9 @@ class matcher(object):
 
     def beta_match(self, funds=Fund.objects.all()):
         """
-        filter for funds with beta within 1% of user_fund.beta
+        filter for funds with beta within 5% of user_fund.beta
         """
-        return funds.filter(beta__gte=float(self.user_beta) * .97, beta__lte=float(self.user_beta) * 1.03)
+        return funds.filter(beta__gte=float(self.user_beta) * .95, beta__lte=float(self.user_beta) * 1.05)
     
     def exp_ratio_match(self, funds=Fund.objects.all()):
         """
@@ -50,8 +50,9 @@ class matcher(object):
         return funds.filter(exp_ratio__lte=self.user_exp_ratio)
     
     def holdings_match(self, funds=Fund.objects.all()):
+        # TODO: make sure that this is accurately filtering funds
         """
-        filter for funds with holdings within 75% of user_fund.holdings
+        filter for funds with holdings within 25% of user_fund.holdings
         """
         user_fund_holdings = set([holding.holding_ticker for holding in self.user_holdings.all()])
         funds_holdings = []
@@ -72,9 +73,10 @@ class matcher(object):
         """
         return a list of funds that match user_fund
         """
-        funds = funds.exclude(ticker=self.user_fund.ticker)
+        matched_funds = funds.exclude(ticker=self.user_fund.ticker)
+
         for filter in self.match_criteria_filter:
-            matched_funds = filter(funds)
+            matched_funds = filter(matched_funds)
         if matched_funds.exists():
             matched_funds = matched_funds.order_by('exp_ratio')
 

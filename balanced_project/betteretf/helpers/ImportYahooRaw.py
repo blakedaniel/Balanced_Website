@@ -17,6 +17,10 @@ class importYahooRaw:
         fund_modules = 'fundPerformance defaultKeyStatistics fundProfile topHoldings quoteType'
         funds = yq.Ticker(tickers, asynchronous=True, validate=True)
         funds = [*funds.get_modules(fund_modules).items()]
+
+
+        if str(funds).find('topHoldings') == -1:
+            return None
         if len(funds) > 1:
             with multiprocessing.Pool() as pool:
                 results = pool.map(self._convertToYahooRaw, funds, batch_size)
@@ -29,7 +33,15 @@ class importYahooRaw:
         fund_equities = list({fund for fund in fund_equities}) # flatten list
         fund_tickers = self._getTickers(fund_equities, batch_size)
         fund_tickers = fund_tickers.difference(set(tickers)) # remove original tickers
+
         fund_tickers = list(fund_tickers)
+
+        fund_tickers = map(self._checkExists, fund_tickers)
+        fund_tickers = filter(lambda x: x is not None, fund_tickers)
+        fund_tickers = list(fund_tickers)
+        if len(fund_tickers) == 0:
+            return tickers
+
         fund_holders = yq.Ticker(fund_tickers, asynchronous=True, validate=True)
         fund_holders = fund_holders.get_modules(fund_modules).items()
         with multiprocessing.Pool() as pool:
@@ -49,6 +61,9 @@ class importYahooRaw:
         fund_data = funds_data[1]
         if isinstance(fund_data, str):
             return
+
+        # TODO: update this to be just create() instead of update_or_create()
+
         yahoo_raw = YahooRaw.objects.update_or_create(
             ticker=ticker,
             quote_type=fund_data.get('quoteType', {}),
@@ -70,6 +85,16 @@ class importYahooRaw:
         equity_tickers = {holding.get('symbol') for group in equity_tickers for holding in group}
         return equity_tickers
 
+
+    def _checkExists(self, ticker):
+        """
+        Check if the ticker already exists in the database
+        """
+        fund  = YahooRaw.objects.filter(ticker=ticker)
+        if not fund.exists():
+            return ticker
+            
+
     def _getHolderNames(self, fund_equities):
         """
         Get the names of the fund holders of the equities
@@ -89,7 +114,7 @@ class importYahooRaw:
         @param batch_size: size of the batch to be processed
         @return: set of fund tickers
         """       
-        with multiprocessing.Pool(10) as pool:
+        with multiprocessing.Pool() as pool:
             fund_equities = list(fund_equities)
             batch_size = max(batch_size//50, 5)
             fund_tickers = []
@@ -113,6 +138,3 @@ class importYahooRaw:
             return results
         except:
             return
-
-# if __name__ == '__main__':
-#     importYahooRaw(test_tickers)

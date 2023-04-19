@@ -1,6 +1,6 @@
-from django.shortcuts import get_object_or_404, HttpResponse, render
+from django.shortcuts import render
 from betteretf.models import Fund, YahooRaw
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView
 from betteretf.helpers.matching import matcher
 from betteretf.helpers.ImportYahooRaw import importYahooRaw
 
@@ -65,13 +65,15 @@ class tickerSearchView(fundCreateMixin, tickerMatchMixin, ListView):
         # get the ticker from GET parameters
         ticker = self.request.GET.get('ticker')
         # if fund of ticker is not None, filter the queryset
-        if ticker is not None:
-            ticker = ticker.upper()
+        if ticker is not None and ticker != '':
+            ticker = ticker.upper().strip()
             fund  = Fund.objects.filter(ticker=ticker)
             if fund.exists():
                 return fund
             else:
-                self.createFund(ticker)
+                result = self.createFund(ticker)
+                if result is None:
+                    return None
                 fund  = Fund.objects.filter(ticker=ticker)
                 return fund
 

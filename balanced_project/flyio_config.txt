@@ -12,3 +12,5 @@ Set secrets on balanced: SECRET_KEY
 
 Admin URL: https://fly.io/apps/balanced
 Hostname: balanced.fly.dev
+
+SECRET_KEY = "django-insecure-ogl4r_5!c_i#7bl=!e_@j2iz%)sz=-63q2e4$%zt4w8vcvc7_)"

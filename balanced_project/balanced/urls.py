@@ -29,10 +29,9 @@ from django.conf.urls.static import static
 # used for REST API framework routing and converting models into views
 from rest_framework import routers
 
-from balanced.views import FundView, FundCreateView, HoldingsView, HoldingsCreateView, SectorsView, SectorsCreateView
-from balanced.views import ThreeYearHistoryView, ThreeYearHistoryCreateView
-from balanced.views import YahooRawView, YahooRawCreateView
-from betteretf.views import HomeView
+from balanced.views import FundView, HoldingsView, SectorsView
+from balanced.views import ThreeYearHistoryView
+from balanced.views import YahooRawView
 
 # admin urls
 urlpatterns = [
@@ -42,7 +41,7 @@ urlpatterns = [
 # betteretf urls
 urlpatterns += [
     path('betteretf/', include('betteretf.urls')),
-    path('', RedirectView.as_view(url='/betteretf/')),
+    path('', RedirectView.as_view(url='betteretf/', permanent=True)),
 ]
 
 # used to let the development server serve static files like css, java, images, etc.

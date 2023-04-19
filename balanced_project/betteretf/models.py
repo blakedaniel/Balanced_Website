@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.functions import Coalesce
 
 class YahooRaw(models.Model):
     ticker = models.CharField(max_length=8, unique=True)

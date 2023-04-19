@@ -3,7 +3,6 @@ from betteretf.models import Fund, HoldingsBreakdown, SectorsBreakdown, ThreeYea
 from collections import defaultdict
 from django.db import transaction
 import pandas as pd
-import asyncio
 
 # TODO: add error handling throughout
 
@@ -177,7 +176,7 @@ class Importer(object):
                 print('HoldingsBreakdown already exists for ticker: {}'.format(ticker))
             else:
                 holdings = self._createHoldings(ticker, response)
-                if holdings == None:
+                if holdings is None:
                     details['holdings'].extend([])
                 else:
                     details['holdings'].extend(holdings)
@@ -186,7 +185,7 @@ class Importer(object):
                 print('SectorsBreakdown already exists for ticker: {}'.format(ticker))
             else:
                 sectors = self._createSectors(ticker, response)
-                if sectors == None:
+                if sectors is None:
                     details['sectors'].extend([])
                 else:
                     details['sectors'].extend(sectors)
@@ -195,7 +194,7 @@ class Importer(object):
                 print('ThreeYearHistory already exists for ticker: {}'.format(ticker))
             else:
                 history = self._createHistory(ticker, response)
-                if history == None:
+                if history is None:
                     details['history'].extend([])
                 else:
                     details['history'].extend(history)
@@ -218,7 +217,7 @@ class Importer(object):
 
         # pull out quoteType
         def func(holding): holding.get('quoteType', {}).get('quoteType', {})
-        quote_types = map(func, holding_funds)
+        map(func, holding_funds)
         # zip up to ticker, and only go to next phase on those that are Equity
 
         #pull out owners
