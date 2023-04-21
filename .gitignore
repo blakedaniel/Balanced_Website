@@ -161,8 +161,8 @@ quickstart/
 */archives/
 
 # fly files
-*/flyio_config.txt
-*/fly.toml
+flyio_config.txt
+fly.toml
 
 # mac files
-*/.DS_Store
+.DS_Store
