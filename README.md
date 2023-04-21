@@ -7,9 +7,9 @@
 
 Demo Site: https://balanced.fly.dev/betteretf/
 
-### Handy Helper Modules
+### [Handy Helper Modules](https://github.com/blakedaniel/Balanced_Website/tree/main/balanced_project/betteretf/helpers)
 
-#### betteretf.helpers.ImportYahooRaw
+#### [betteretf.helpers.ImportYahooRaw](https://github.com/blakedaniel/Balanced_Website/blob/main/balanced_project/betteretf/helpers/ImportYahooRaw.py)
 
 This module contains methods for importing raw financial data from Yahoo Finance API for a given list of stock tickers. The `graphImport()` method imports tickers and their related tickers' data, validates them, retrieves data for their top holdings and fund ownership, and converts the data into a custom model object YahooRaw for the BetterETF Djanog App. This is called graphImport, as it does a graph search on a given fund ticker, then identifies all funds that share a similar makeup of funds, then prepares all of these objects for importing. The class also has other private methods that perform helper functions for:
 
@@ -19,7 +19,7 @@ This module contains methods for importing raw financial data from Yahoo Finance
 
 Overall, this code can be used to automate the process of importing raw financial data from Yahoo Finance API into a custom model object, which can then be used to perform further analysis or integrated into a larger financial system.
 
-#### betteretf.helpers.asyncYahooSearch
+#### [betteretf.helpers.asyncYahooSearch](https://github.com/blakedaniel/Balanced_Website/blob/main/balanced_project/betteretf/helpers/asyncYahooSearch.py)
 
 This module defines updates [YahooQuery](https://yahooquery.dpguthrie.com)'s Search function to except a list of search tearms and to search Yahoo Finance asynchronously.
 
