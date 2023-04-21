@@ -1,8 +1,6 @@
 # Balaced
 *Financial Literacy Made Easy*
 
-
-
 ## BetterETF Django App
 
 Demo Site: https://balanced.fly.dev/betteretf/
