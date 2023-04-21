@@ -11,6 +11,7 @@ class importYahooRaw:
         self.test_tickers = ('VOO', 'AMJ', 'XLK', 'CWMAX',
                              'FCNTX', 'HLEIX', 'VITSX', 'CAIFX', 'FNCFX')
     
+    # pull from api
     def graphImport(self, tickers, batch_size=500):
         if isinstance(tickers, str):
             tickers = [tickers]
@@ -22,74 +23,35 @@ class importYahooRaw:
         if str(funds).find('topHoldings') == -1:
             return None
         if len(funds) > 1:
-            results = map(self._convertToYahooRaw, funds)
-            fund_equities = self._grabEquities(results)
+            with multiprocessing.Pool() as pool:
+                results = pool.map(self._convertToYahooRaw, funds, batch_size)
+                fund_equities = self._grabEquities(results)
         else:
             results = [self._convertToYahooRaw(funds[0])]
             fund_equities = self._grabEquities(results)
     
         fund_equities = self._getHolderNames(fund_equities)
         fund_equities = list({fund for fund in fund_equities}) # flatten list
-        if self._validate(fund_equities):
-            return tickers
-
         fund_tickers = self._getTickers(fund_equities, batch_size)
-        fund_tickers = list(fund_tickers)
-        fund_tickers = map(self._checkExists, fund_tickers)
-        fund_tickers = filter(lambda x: x is not None, fund_tickers)
-        fund_tickers = list(fund_tickers)
-        if self._validate(fund_tickers):
-            return tickers
-
-        fund_holders = yq.Ticker(fund_tickers, asynchronous=True, validate=True)
-        fund_holders = fund_holders.get_modules(fund_modules).items()
-
-        results += map(self._convertToYahooRaw, fund_holders)
-        results = filter(lambda x: isinstance(x, YahooRaw), results)
-        fund_tickers += tickers
-        fund_tickers = list(set(fund_tickers))
-        return fund_tickers
-
-
-    def graphImportEx(self, tickers, batch_size=500):
-        if isinstance(tickers, str):
-            tickers = [tickers]
-        fund_modules = 'fundPerformance defaultKeyStatistics fundProfile topHoldings quoteType'
-        funds = yq.Ticker(tickers, asynchronous=True, validate=True)
-        funds = [*funds.get_modules('topHoldings').values()]
-
-
-        if str(funds).find('holdings') == -1:
-            return None
-
-        fund_equities = self._grabEquities(funds, new=False)
-        fund_equities = self._getHolderNames(fund_equities)
-        fund_equities = list({fund for fund in fund_equities}) # flatten list
-        fund_tickers = self._getTickers(fund_equities, batch_size)
-        # fund_tickers = fund_tickers.difference(set(tickers)) # remove original tickers
+        fund_tickers = fund_tickers.difference(set(tickers)) # remove original tickers
 
         fund_tickers = list(fund_tickers)
 
         fund_tickers = map(self._checkExists, fund_tickers)
         fund_tickers = filter(lambda x: x is not None, fund_tickers)
         fund_tickers = list(fund_tickers)
-        if self._validate(fund_tickers):
-            return None
+        if len(fund_tickers) == 0:
+            return tickers
 
         fund_holders = yq.Ticker(fund_tickers, asynchronous=True, validate=True)
         fund_holders = fund_holders.get_modules(fund_modules).items()
-
-        results = map(self._convertToYahooRaw, fund_holders)
-        results = filter(lambda x: isinstance(x, YahooRaw), results)
+        with multiprocessing.Pool() as pool:
+            results += pool.map(self._convertToYahooRaw, fund_holders, batch_size)
+            results = filter(lambda x: isinstance(x, YahooRaw), results)
         fund_tickers += tickers
         fund_tickers = list(set(fund_tickers))
-        if self._validate(fund_tickers):
-            return None
-        
         return fund_tickers
 
-    def _validate(self, list_set_tuple):
-        return len(list_set_tuple) == 0
 
     # transform into correct format
     def _convertToYahooRaw(self, funds_data):
@@ -114,20 +76,14 @@ class importYahooRaw:
         return yahoo_raw[0]
 
 
-    def _grabEquities(self, top_holdings, new=True):
+    def _grabEquities(self, top_holdings):
         """
         Grab the equities from the top holdings of the funds
         @param top_holdings: list of top holdings of the funds
         @return: set of equity tickers
         """
-        if new:
-            equity_tickers = map(lambda x: x.top_holdings.get('holdings'), top_holdings)
-            equity_tickers = {holding.get('symbol')
-                              for group in equity_tickers for holding in group}
-        else:
-            equity_tickers = map(lambda x: x.get('holdings'), top_holdings)
-            equity_tickers = {holding.get('symbol')
-                              for group in equity_tickers for holding in group}
+        equity_tickers = map(lambda x: x.top_holdings.get('holdings'), top_holdings)
+        equity_tickers = {holding.get('symbol') for group in equity_tickers for holding in group}
         return equity_tickers
 
 
@@ -159,12 +115,28 @@ class importYahooRaw:
         @param batch_size: size of the batch to be processed
         @return: set of fund tickers
         """       
-        fund_equities = list(fund_equities)
-        fund_tickers = []
-        fund_tickers.extend(search(fund_equities))
-        if len(fund_equities) > 0:
-            fund_tickers.extend(search(fund_equities))
-        fund_tickers = map(lambda x: x.get('symbol'), fund_tickers)
-        fund_tickers = filter(lambda x: x is not None, fund_tickers)
-        fund_tickers = set(fund_tickers)
+        with multiprocessing.Pool() as pool:
+            fund_equities = list(fund_equities)
+            batch_size = max(batch_size//50, 5)
+            fund_tickers = []
+            while len(fund_equities) > batch_size: 
+                batch, fund_equities = fund_equities[:batch_size], fund_equities[batch_size:]
+                fund_tickers.extend(pool.map(self._getFund, batch))
+            if len(fund_equities) > 0:
+                fund_tickers.extend(pool.map(self._getFund, fund_equities))
+            fund_tickers = map(lambda x: x.get('symbol'), fund_tickers)
+            fund_tickers = filter(lambda x: x is not None, fund_tickers)
+            fund_tickers = set(fund_tickers)
         return fund_tickers
+
+
+    def _getFund(self, equity_holder):
+        """
+        Get the fund details of the equity holder
+        """
+        try:
+            results = search(equity_holder, first_quote=True)
+            return results
+        except:
+            return
+

@@ -1,12 +1,6 @@
 from betteretf.models import Fund
 from django.shortcuts import HttpResponse
 
-# match a given user_fund object to funds in the database where...
-# user_fund.beta * .99 < fund.beta < user_fund.beta * 1.01
-# itersection of user_fund.holdings and fund.holdings > 75%
-# itersection of user_fund.sectors and fund.sectors > 75%
-# fund.exp_ratio < user_fund.exp_ratio
-
 class matcher(object):
     def __init__(self, user_fund):
         """

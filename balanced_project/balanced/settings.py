@@ -84,26 +84,26 @@ WSGI_APPLICATION = "balanced.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://balanced:klOQ1tMKttWeMsu@balanced-db.flycast:5432/balanced?sslmode=disable',
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
-}
-
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('POSTGRES_DB'),
-#         'USER': os.getenv('POSTGRES_USER_LOCAL'),
-#         # 'USER': os.getenv('POSTGRES_USER'),
-#         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-#         'HOST': os.getenv('POSTGRES_HOST_LOCAL'),
-#         # 'HOST': os.getenv('POSTGRES_HOST'),
-#         'PORT': '5432',
-#     }
+#     'default': dj_database_url.config(
+#         default='postgres://balanced:klOQ1tMKttWeMsu@balanced-db.flycast:5432/balanced?sslmode=disable',
+#         conn_max_age=600,
+#         conn_health_checks=True,
+#     )
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER_LOCAL'),
+        # 'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST_LOCAL'),
+        # 'HOST': os.getenv('POSTGRES_HOST'),
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
