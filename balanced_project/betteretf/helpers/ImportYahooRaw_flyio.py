@@ -1,16 +1,12 @@
-import django
-django.setup()
-
 import yahooquery as yq
 from betteretf.helpers.asyncYahooSearch import search
-import multiprocessing
 from betteretf.models import YahooRaw
 
 class importYahooRaw:
     def __init__(self):
         self.test_tickers = ('VOO', 'AMJ', 'XLK', 'CWMAX',
                              'FCNTX', 'HLEIX', 'VITSX', 'CAIFX', 'FNCFX')
-    
+
     def graphImport(self, tickers, batch_size=500):
         if isinstance(tickers, str):
             tickers = [tickers]
