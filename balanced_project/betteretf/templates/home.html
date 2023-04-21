@@ -10,45 +10,42 @@
 
 <!-- input for ticker search -->
 {% block search %}
-<div>
-    <form action="{% url 'ticker_search' %}" method="get">
-        {% csrf_token %}
-        <div>
-            <label for="ticker">Ticker</label>
-            <input type="text" name="ticker" placeholder="VOO, SPY, CHSW, etc." />
-        </div>
-        <div>
-            <button type="submit">Find</button>
-        </div>
-    </form>
-</div>
+{% include 'search.html' %}
 {% endblock %}
 
 <!-- ticker search results -->
 {% block results %}
 <div>
     <h2>Results</h2>
+    {% if user_fund %}
+    <h3>My Fund</h3>
     <ul>
-        {% if user_fund %}
-            <li><strong>Ticker</strong>: {{ user_fund.first.ticker }}</li>
-            <li><strong>Name</strong>: {{ user_fund.first.name }}</li>
-            <li><strong>Category</strong>: {{ user_fund.first.category }}</li>
-            <li><strong>Expense Ratio</strong>: {{ user_fund.first.exp_ratio }}</li>
-            <li><strong>Beta</strong>: {{ user_fund.first.beta }}</li>
-        {% else %}
-            <li>No results found</li>
+        <li><strong>Ticker</strong>: {{ user_fund.first.ticker }}</li>
+        <li><strong>Name</strong>: {{ user_fund.first.name }}</li>
+        <li><strong>Category</strong>: {{ user_fund.first.category }}</li>
+        <li><strong>Expense Ratio</strong>: {{ user_fund.first.exp_ratio }}</li>
+        <li><strong>Beta</strong>: {{ user_fund.first.beta }}</li>
+    </ul>
+    {% else %}
+    <ul>
+        <li>No results found</li>
+    </ul>
+    {% endif %}
+    {% if similar_funds %}
+    <h3>Possible Alternatives</h3>
+        {% for fund in similar_funds %}
+        <ul>
+        {% if fund.exp_ratio < user_fund.first.exp_ratio and forloop.counter == 1 %}
+            <li><strong>CHEAPER OPTION</strong></li>
         {% endif %}
-        {% if similar_funds %}
-            {% for fund in similar_funds %}
-            </br>
             <li><strong>Ticker</strong>: {{ fund.ticker }}</li>
             <li><strong>Name</strong>: {{ fund.name }}</li>
             <li><strong>Category</strong>: {{ fund.category }}</li>
             <li><strong>Expense Ratio</strong>: {{ fund.exp_ratio }}</li>
             <li><strong>Beta</strong>: {{ fund.beta }}</li>
-            {% endfor %}
-        {% else %}
-        {% endif %}
+        </ul>
+        {% endfor %}
+    {% endif %}
     </ul>
 </div>
 {% endblock %}

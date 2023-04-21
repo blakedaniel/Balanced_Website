@@ -41,7 +41,9 @@ class matcher(object):
         """
         filter for funds with beta within 5% of user_fund.beta
         """
-        return funds.filter(beta__gte=float(self.user_beta) * .95, beta__lte=float(self.user_beta) * 1.05)
+        floor = float(self.user_beta) * .95
+        ceiling = float(self.user_beta) * 1.05
+        return funds.filter(beta__gte=floor, beta__lte=ceiling)
     
     def exp_ratio_match(self, funds=Fund.objects.all()):
         """
@@ -74,13 +76,13 @@ class matcher(object):
         return a list of funds that match user_fund
         """
         matched_funds = funds.exclude(ticker=self.user_fund.ticker)
-
         for filter in self.match_criteria_filter:
             matched_funds = filter(matched_funds)
+            # breakpoint()
         if matched_funds.exists():
             matched_funds = matched_funds.order_by('exp_ratio')
 
         # limit the number of funds returned
-        cap = min(max(len(matched_funds) - 1, 0), cap)
+        cap = min(max(len(matched_funds) - 1, 1), cap)
         matched_funds = matched_funds[:cap]
         return matched_funds

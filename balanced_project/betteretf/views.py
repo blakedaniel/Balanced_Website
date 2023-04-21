@@ -2,7 +2,7 @@ from django.shortcuts import render
 from betteretf.models import Fund, YahooRaw
 from django.views.generic import ListView
 from betteretf.helpers.matching import matcher
-from betteretf.helpers.ImportYahooRaw import importYahooRaw
+from betteretf.helpers.ImportYahooRaw_flyio import importYahooRaw
 
 
 def HomeView(request):
@@ -18,7 +18,7 @@ class fundCreateMixin():
     """
     mixin that creates a ticker in the database
     """
-    def createFund(self, ticker):
+    def createFund(self, ticker, new=True):
         """
         pull data from yahoo finance and write it to YahooRaw,
         then related convert YahooRaw objects to Fund objects,
@@ -29,8 +29,15 @@ class fundCreateMixin():
 
         # execute ImportYahooRaw
         importer = importYahooRaw()
-        tickers = importer.graphImport(ticker)
+        if new:
+            tickers = importer.graphImport(ticker)
+            if tickers == None:
+                return
         # convert YahooRaw objects to Fund objects
+        else:
+            tickers = importer.graphImportEx(ticker)
+            if tickers == None:
+                return
         imported_funds = YahooRaw.objects.filter(ticker__in=tickers)
         converted_funds = map(lambda x: x.convertToFund(), imported_funds)
         converted_funds = [*converted_funds]
@@ -84,7 +91,9 @@ class tickerSearchView(fundCreateMixin, tickerMatchMixin, ListView):
         user_fund = self.get_queryset()
         if user_fund is not None and user_fund.exists() and None not in (user_fund[0].beta, user_fund[0].exp_ratio):
             user_fund = user_fund[0]
+            # breakpoint()
             context['similar_funds'] = self.matchFund(user_fund.ticker)
+            # breakpoint()
         else:
             context['similar_funds'] = None
         return context

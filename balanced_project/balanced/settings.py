@@ -24,10 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['balanced.fly.dev', 'localhost', '127.0.0.1', 'localhost', '0.0.0.0']
-CSRF_TRUSTED_ORIGINS = ['http://localhost*', 'http://balanced.fly.dev*', 'https://balanced.fly.dev']
+ALLOWED_HOSTS = ['balanced.fly.dev',
+                 'localhost',
+                 '127.0.0.1',
+                 '0.0.0.0']
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost*',
+                        'http://balanced.fly.dev*',
+                        'https://balanced.fly.dev']
 
 # Application definition
 
@@ -98,6 +104,7 @@ DATABASES = {
 #         'PORT': '5432',
 #     }
 # }
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
