@@ -1,3 +1,23 @@
+// default_key_statiscits
+
+{
+    "yield": 0.0161,
+    "maxAge": 1,
+    "category": "Large Blend",
+    "beta3Year": 1.0,
+    "legalType": "Exchange Traded Fund",
+    "priceHint": 2,
+    "ytdReturn": 0.0831119,
+    "fundFamily": "Vanguard",
+    "totalAssets": 803522543616,
+    "lastSplitFactor": null,
+    "fundInceptionDate": "2010-09-07 00:00:00",
+    "fiveYearAverageReturn": 0.1116345,
+    "threeYearAverageReturn": 0.15067351
+}
+
+// fund_performance
+
 {
     "maxAge": 1,
     "trailingReturns": {
@@ -255,4 +275,49 @@
             }
         ]
     }
+}
+
+// fund_profile
+
+{
+    "family": "Vanguard",
+    "maxAge": 1,
+    "legalType": "Exchange Traded Fund",
+    "brokerages": [],
+    "styleBoxUrl": "https://s.yimg.com/lq/i/fi/3_0stylelargeeq2.gif",
+    "categoryName": "Large Blend",
+    "managementInfo": {
+        "managerBio": null,
+        "managerName": null
+    },
+    "feesExpensesInvestment": {
+        "totalNetAssets": 188911.73,
+        "projectionValues": {},
+        "annualHoldingsTurnover": 0.02,
+        "annualReportExpenseRatio": 0.00029999999
+    },
+    "feesExpensesInvestmentCat": {
+        "totalNetAssets": 188911.73,
+        "projectionValuesCat": {},
+        "annualHoldingsTurnover": 50.76,
+        "annualReportExpenseRatio": 0.0036000002
+    }
+}
+
+// quote_type
+
+{
+    "uuid": "367519e5-61d9-3b17-9298-4635221f9752",
+    "maxAge": 1,
+    "symbol": "VOO",
+    "exchange": "PCX",
+    "longName": "Vanguard 500 Index Fund",
+    "quoteType": "ETF",
+    "shortName": "Vanguard S&P 500 ETF",
+    "messageBoardId": "finmb_28117396",
+    "timeZoneFullName": "America/New_York",
+    "underlyingSymbol": "VOO",
+    "timeZoneShortName": "EDT",
+    "gmtOffSetMilliseconds": -14400000,
+    "firstTradeDateEpochUtc": "2010-09-09 13:30:00"
 }

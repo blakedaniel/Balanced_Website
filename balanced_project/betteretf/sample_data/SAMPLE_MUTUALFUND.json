@@ -1,0 +1,712 @@
+// default_key_statiscits
+
+{
+    "maxAge": 1,
+    "priceHint": 2,
+    "morningStarOverallRating": 2,
+    "morningStarRiskRating": 5,
+    "category": None,
+    "annualReportExpenseRatio": 0.0064,
+    "beta3Year": 2.68,
+    "totalAssets": 646838912,
+    "fundFamily": None,
+    "fundInceptionDate": "2008-09-10 20: 00: 00",
+    "legalType": None,
+    "lastSplitFactor": None,
+    "lastDividendValue": 0.05871,
+    "lastCapGain": -14.0,
+    "annualHoldingsTurnover": 0.73
+}
+// fund_performance
+{
+    "maxAge": 1,
+    "performanceOverview": {
+        "asOfDate": "2023-04-19 20:00:00",
+        "morningStarReturnRating": 0.0,
+        "ytdReturnPct": 0.0756986,
+        "fiveYrAvgReturnPct": -0.0100879,
+        "numYearsUp": 10,
+        "numYearsDown": 6,
+        "bestOneYrTotalReturn": 0.5581,
+        "bestThreeYrTotalReturn": 0.5581,
+        "worstThreeYrTotalReturn": -0.106800005
+    },
+    "performanceOverviewCat": {
+        "ytdReturnPct": -0.0722,
+        "fiveYrAvgReturnPct": 0.0301
+    },
+    "loadAdjustedReturns": {
+        "oneYear": -0.24870001,
+        "threeYear": -0.15728611,
+        "fiveYear": -0.0140952,
+        "tenYear": 0.01664
+    },
+    "trailingReturns": {
+        "asOfDate": "2023-04-19 20:00:00",
+        "ytd": 0.0756986,
+        "oneMonth": -0.0106734,
+        "threeMonth": -0.0120499,
+        "oneYear": -0.1770719,
+        "threeYear": -0.1707842,
+        "fiveYear": -0.0100879,
+        "tenYear": 0.0085016005,
+        "lastBullMkt": -0.048232097,
+        "lastBearMkt": -0.17574869
+    },
+    "trailingReturnsNav": {
+        "ytd": 0.0,
+        "oneMonth": 0.0,
+        "threeMonth": 0.0,
+        "oneYear": 0.0,
+        "threeYear": 0.0,
+        "fiveYear": 0.0,
+        "tenYear": 0.0
+    },
+    "trailingReturnsCat": {
+        "ytd": -0.0722,
+        "oneMonth": 0.039,
+        "threeMonth": 0.064899996,
+        "oneYear": -0.1008,
+        "threeYear": 0.0793,
+        "fiveYear": 0.0301,
+        "tenYear": 0.0694,
+        "lastBullMkt": -0.0073,
+        "lastBearMkt": 0.3216
+    },
+    "annualTotalReturns": {
+        "returns": [
+            {
+                "year": "2023"
+            },
+            {
+                "year": "2022",
+                "annualValue": -0.3983773
+            },
+            {
+                "year": "2021",
+                "annualValue": -0.0502352
+            },
+            {
+                "year": "2020",
+                "annualValue": 0.2472829
+            },
+            {
+                "year": "2019",
+                "annualValue": 0.1862101
+            },
+            {
+                "year": "2018",
+                "annualValue": -0.040066198
+            },
+            {
+                "year": "2017",
+                "annualValue": 0.1381206
+            },
+            {
+                "year": "2016",
+                "annualValue": 0.016739
+            },
+            {
+                "year": "2015",
+                "annualValue": -0.0410643
+            },
+            {
+                "year": "2014",
+                "annualValue": 0.4536568
+            },
+            {
+                "year": "2013",
+                "annualValue": -0.2120843
+            },
+            {
+                "year": "2012",
+                "annualValue": 0.0288627
+            },
+            {
+                "year": "2011",
+                "annualValue": 0.5580806
+            },
+            {
+                "year": "2010",
+                "annualValue": 0.12847081
+            },
+            {
+                "year": "2009",
+                "annualValue": -0.2819473
+            },
+            {
+                "year": "2008",
+                "annualValue": 0.4918639
+            },
+            {
+                "year": "2007",
+                "annualValue": 0.1079468
+            },
+            {
+                "year": "2006"
+            }
+        ],
+        "returnsCat": [
+            {
+                "year": "2020",
+                "annualValue": 0.1747591
+            },
+            {
+                "year": "2019",
+                "annualValue": 0.1404153
+            },
+            {
+                "year": "2018",
+                "annualValue": -0.0180709
+            },
+            {
+                "year": "2017",
+                "annualValue": 0.0839576
+            },
+            {
+                "year": "2016",
+                "annualValue": 0.0117887
+            },
+            {
+                "year": "2015",
+                "annualValue": -0.010967899
+            },
+            {
+                "year": "2014",
+                "annualValue": 0.2170046
+            },
+            {
+                "year": "2013",
+                "annualValue": -0.1334389
+            },
+            {
+                "year": "2012",
+                "annualValue": 0.0386724
+            },
+            {
+                "year": "2011",
+                "annualValue": 0.3289727
+            },
+            {
+                "year": "2010",
+                "annualValue": 0.1165282
+            },
+            {
+                "year": "2009",
+                "annualValue": -0.1751224
+            },
+            {
+                "year": "2008",
+                "annualValue": 0.2766664
+            },
+            {
+                "year": "2007",
+                "annualValue": 0.0976419
+            },
+            {
+                "year": "2006",
+                "annualValue": 0.0014515001
+            },
+            {
+                "year": "2005",
+                "annualValue": 0.0605967
+            },
+            {
+                "year": "2004",
+                "annualValue": 0.073927306
+            },
+            {
+                "year": "2003",
+                "annualValue": 0.0174977
+            },
+            {
+                "year": "2002",
+                "annualValue": 0.1385907
+            },
+            {
+                "year": "2001",
+                "annualValue": 0.040989198
+            },
+            {
+                "year": "2000",
+                "annualValue": 0.1705802
+            },
+            {
+                "year": "1999",
+                "annualValue": -0.0823863
+            },
+            {
+                "year": "1998",
+                "annualValue": 0.121804
+            },
+            {
+                "year": "1997",
+                "annualValue": 0.1299309
+            },
+            {
+                "year": "1996",
+                "annualValue": -0.0047958
+            },
+            {
+                "year": "1995",
+                "annualValue": 0.259231
+            },
+            {
+                "year": "1994",
+                "annualValue": -0.0644209
+            },
+            {
+                "year": "1993",
+                "annualValue": 0.15156299
+            },
+            {
+                "year": "1992",
+                "annualValue": 0.0683431
+            },
+            {
+                "year": "1991",
+                "annualValue": 0.1693564
+            },
+            {
+                "year": "1990",
+                "annualValue": 0.052907098
+            },
+            {
+                "year": "1989",
+                "annualValue": 0.1660832
+            },
+            {
+                "year": "1988",
+                "annualValue": 0.084247
+            },
+            {
+                "year": "1987",
+                "annualValue": -0.0308417
+            },
+            {
+                "year": "1986",
+                "annualValue": 0.18294139
+            },
+            {
+                "year": "1985",
+                "annualValue": 0.2127994
+            },
+            {
+                "year": "1984",
+                "annualValue": 0.1256791
+            }
+        ]
+    },
+    "pastQuarterlyReturns": {
+        "returns": [
+            {
+                "year": "2023",
+                "q1": 0.0926418
+            },
+            {
+                "year": "2022",
+                "q1": -0.125039,
+                "q2": -0.17574881,
+                "q3": -0.1317908,
+                "q4": -0.0391589
+            },
+            {
+                "year": "2021",
+                "q1": -0.17872299,
+                "q2": 0.09694529,
+                "q3": 0.0069950004,
+                "q4": 0.0469217
+            },
+            {
+                "year": "2020",
+                "q1": 0.301196,
+                "q2": -0.0073057003,
+                "q3": 0.0001882,
+                "q4": -0.0345607
+            },
+            {
+                "year": "2019",
+                "q1": 0.0645691,
+                "q2": 0.068405,
+                "q3": 0.119008906,
+                "q4": -0.0679948
+            },
+            {
+                "year": "2018",
+                "q1": -0.048056502,
+                "q2": 0.0073048,
+                "q3": -0.0449739,
+                "q4": 0.0482236
+            },
+            {
+                "year": "2017",
+                "q1": 0.0211292,
+                "q2": 0.065195896,
+                "q3": 0.0025229,
+                "q4": 0.0437194
+            },
+            {
+                "year": "2016",
+                "q1": 0.1181989,
+                "q2": 0.0957041,
+                "q3": 0.004733,
+                "q4": -0.1740638
+            },
+            {
+                "year": "2015",
+                "q1": 0.0641273,
+                "q2": -0.1477873,
+                "q3": 0.0753268,
+                "q4": -0.016651599
+            },
+            {
+                "year": "2014",
+                "q1": 0.12982279,
+                "q2": 0.0773278,
+                "q3": 0.0500658,
+                "q4": 0.1373317
+            },
+            {
+                "year": "2013",
+                "q1": -0.0444732,
+                "q2": -0.08319101,
+                "q3": -0.0539959,
+                "q4": -0.049253
+            },
+            {
+                "year": "2012",
+                "q1": -0.1090732,
+                "q2": 0.1941963,
+                "q3": -0.0126586,
+                "q4": -0.0205724
+            },
+            {
+                "year": "2011",
+                "q1": -0.032455,
+                "q2": 0.043565303,
+                "q3": 0.5231632,
+                "q4": 0.0131008
+            },
+            {
+                "year": "2010",
+                "q1": -0.0026586,
+                "q2": 0.2503542,
+                "q3": 0.066856,
+                "q4": -0.1517818
+            },
+            {
+                "year": "2009",
+                "q1": -0.1392643,
+                "q2": -0.1356526,
+                "q3": 0.1047289,
+                "q4": -0.1263401
+            },
+            {
+                "year": "2008",
+                "q1": 0.0387367,
+                "q2": -0.0346409,
+                "q3": 0.039813098,
+                "q4": 0.4308018
+            },
+            {
+                "year": "2007",
+                "q1": 0.0010828,
+                "q2": -0.0598493,
+                "q3": 0.0662366,
+                "q4": 0.10407309
+            },
+            {
+                "year": "2006",
+                "q1": -0.0007597
+            }
+        ]
+    },
+    "rankInCategory": {
+        "ytd": 5,
+        "oneMonth": 14,
+        "threeMonth": 5,
+        "oneYear": 89,
+        "threeYear": 87,
+        "fiveYear": 78
+    },
+    "riskOverviewStatistics": {
+        "riskRating": 5,
+        "riskStatistics": [
+            {
+                "year": "5y",
+                "alpha": 0.43,
+                "beta": 3.1,
+                "meanAnnualReturn": 0.05,
+                "rSquared": 70.27,
+                "stdDev": 20.05,
+                "sharpeRatio": -0.05,
+                "treynorRatio": -0.94
+            },
+            {
+                "year": "3y",
+                "alpha": -6.23,
+                "beta": 2.68,
+                "meanAnnualReturn": -1.26,
+                "rSquared": 75.3,
+                "stdDev": 19.33,
+                "sharpeRatio": -0.84,
+                "treynorRatio": -6.31
+            },
+            {
+                "year": "10y",
+                "alpha": 0.54,
+                "beta": 3.55,
+                "meanAnnualReturn": 0.28,
+                "rSquared": 70.76,
+                "stdDev": 18.34,
+                "sharpeRatio": 0.13,
+                "treynorRatio": 0.2
+            }
+        ]
+    },
+    "riskOverviewStatisticsCat": {
+        "riskStatisticsCat": [
+            {
+                "year": "5y",
+                "alpha": -0.0358,
+                "beta": 0.0325,
+                "meanAnnualReturn": 0.0031,
+                "rSquared": 0.74660003,
+                "stdDev": 0.121199995,
+                "sharpeRatio": 0.0021,
+                "treynorRatio": 0.0058
+            },
+            {
+                "year": "3y",
+                "alpha": -0.063,
+                "beta": 0.0337,
+                "meanAnnualReturn": 0.0072000003,
+                "rSquared": 0.7083,
+                "stdDev": 0.1372,
+                "sharpeRatio": 0.0055,
+                "treynorRatio": 0.0207
+            },
+            {
+                "year": "10y",
+                "alpha": -0.0295,
+                "beta": 0.0359,
+                "meanAnnualReturn": 0.0064,
+                "rSquared": 0.7075,
+                "stdDev": 0.1292,
+                "sharpeRatio": 0.0055,
+                "treynorRatio": 0.0178
+            }
+        ]
+    }
+}
+// fund_profile
+{
+    "maxAge": 1,
+    "styleBoxUrl": None,
+    "family": "PIMCO",
+    "categoryName": "Long Government",
+    "legalType": None,
+    "managementInfo": {
+        "managerName": "",
+        "managerBio": "Mr. Cudzil is a managing director in the Newport Beach office, a senior member of the liability-driven investment portfolio management team and a generalist portfolio manager. He has served as chair of the Americas Portfolio Committee, as a rotating member on the PIMCO Investment Committee and as co-head of the agency MBS portfolio management team. Prior to joining PIMCO in 2012, he worked as a managing director and head of pass-through trading at Nomura. Mr. Cudzil previously held similar roles at Bank of America and Lehman Brothers, as well as a senior trading position at Salomon Brothers. He holds a bachelor’s degree in political science from the University of Pennsylvania.",
+        "startdate": 1456704000
+    },
+    "feesExpensesInvestment": {
+        "annualReportExpenseRatio": 0.0064,
+        "netExpRatio": 0.0064,
+        "grossExpRatio": 0.0064,
+        "projectionValues": {
+            "5y": 0.0,
+            "3y": 0.0,
+            "10y": 0.0
+        }
+    },
+    "feesExpensesInvestmentCat": {
+        "annualReportExpenseRatio": 0.0034999999,
+        "frontEndSalesLoad": 0.0375,
+        "deferredSalesLoad": 0.01,
+        "projectionValuesCat": {
+            "5y": 335.06,
+            "3y": 197.03,
+            "10y": 714.09
+        }
+    },
+    "initInvestment": 1000000.0,
+    "initAipInvestment": 2.5,
+    "subseqInvestment": 250.0,
+    "subseqAipInvestment": 0.5,
+    "brokerages": [
+        "TradeStation Securities",
+        "Cetera Advisors LLC",
+        "Cetera Advisor Networks LLC",
+        "Mid Atlantic Capital Corp",
+        "Morgan Stanley - Brokerage Accounts",
+        "Pershing FundCenter",
+        "Schwab Institutional",
+        "Shareholders Services Group",
+        "JPMorgan",
+        "Merrill Lynch",
+        "Vanguard",
+        "TD Ameritrade Trust Company",
+        "(Junk)CommonWealth PPS",
+        "LPL SAM Eligible - 01.24.2023",
+        "Fidelity Retail FundsNetwork",
+        "Fidelity Institutional FundsNetwork",
+        "Ameriprise Brokerage",
+        "Cetera Advisors LLC- PAM, PRIME, Premier",
+        "Cetera Advisor Networks LLC- PAM, PRIME, Premier",
+        "CommonWealth Core",
+        "Raymond James",
+        "Raymond James WRAP Eligible",
+        "Bear Stearns No-Load Transaction Fee",
+        "Commonwealth Universe",
+        "RBC Wealth Management-Network Eligible",
+        "DailyAccess Corporation RTC",
+        "DailyAccess Corporation FRIAG",
+        "Scottrade TF",
+        "Fidelity Advisor 401(k) I Shares",
+        "Thrivent – Advisory Eligible",
+        "Morgan Stanley Consulting Group Advisor",
+        "Matrix Financial Solutions",
+        "Trade PMR Transaction Fee",
+        "TD Ameritrade Retail",
+        "TD Ameritrade Institutional",
+        "Met Life Resources MFSP Alliance List",
+        "ADP Access",
+        "Mid Atlantic Capital Group",
+        "Securities America Advisors",
+        "Bear Stearns",
+        "JP MORGAN NO-LOAD NTF",
+        "JP MORGAN LOAD",
+        "JP MORGAN NO-LOAD TRANSACTION FEE",
+        "MSWM Brokerage",
+        "ADP Access Open Fund Architecture",
+        "DailyAccess Corporation Mid-Atlantic",
+        "RBC Wealth Management-Wrap Eligible",
+        "H Beck Inc.",
+        "ING Financial Partners Inc.",
+        "Securities America Inc.",
+        "Jiangsu Akcome Science & Technology Co Ltd",
+        "Vanguard TF",
+        "Morgan Stanley Portfolio Management",
+        "DailyAccess Corporation Matrix",
+        "DailyAccess Corporation MATC",
+        "Cetera Financial Specialists LLC- Premier",
+        "LPL SWM - 01.24.2023",
+        "Schwab All (Retail, Instl, Retirement)",
+        "ADP Access IPS Z",
+        "Pershing Retirement Plan Network",
+        "Commonwealth (PPS Access Program)",
+        "Commonwealth (NTF - PPS/Advisory)",
+        "Commonwealth (PPS/Advisory)",
+        "LPL Brokerage Availability - 10.29.2021",
+        "Allowab (non-advisory)"
+    ]
+}
+// quote_type
+{
+    "exchange": "NAS",
+    "quoteType": "MUTUALFUND",
+    "symbol": "PEDIX",
+    "underlyingSymbol": "PEDIX",
+    "shortName": "PIMCO Extended Duration Fund In",
+    "longName": "PIMCO Extended Duration Fund Institutional Cl",
+    "firstTradeDateEpochUtc": "2006-09-01 09:30:00",
+    "timeZoneFullName": "America/New_York",
+    "timeZoneShortName": "EDT",
+    "uuid": "d1b0ad52-c154-391a-8feb-179327d1acec",
+    "messageBoardId": "finmb_60046840",
+    "gmtOffSetMilliseconds": -14400000,
+    "maxAge": 1
+}
+// top_holdings
+{
+    "maxAge": 1,
+    "cashPosition": 0.16549999,
+    "stockPosition": 0.0,
+    "bondPosition": 0.7956,
+    "otherPosition": 0.039,
+    "preferredPosition": 0.0,
+    "convertiblePosition": 0.0,
+    "holdings": [
+        {
+            "symbol": "ZNH23",
+            "holdingName": "ZNH23",
+            "holdingPercent": 0.142211
+        },
+        {
+            "symbol": "ZFH23",
+            "holdingName": "ZFH23",
+            "holdingPercent": 0.086995296
+        },
+        {
+            "symbol": "TNH23",
+            "holdingName": "TNH23",
+            "holdingPercent": 0.4388428
+        },
+        {
+            "symbol": "ZBH23",
+            "holdingName": "ZBH23",
+            "holdingPercent": 0.2810009
+        }
+    ],
+    "equityHoldings": {
+        "priceToEarnings": 0.0,
+        "priceToBook": 0.0,
+        "priceToSales": 0.0,
+        "priceToCashflow": 0.0,
+        "medianMarketCap": 0.0,
+        "threeYearEarningsGrowth": 0.0,
+        "priceToEarningsCat": 23.71,
+        "priceToBookCat": 2.73,
+        "priceToSalesCat": 2.1,
+        "priceToCashflowCat": 13.54,
+        "medianMarketCapCat": 78100.05,
+        "threeYearEarningsGrowthCat": 9.42
+    },
+    "bondHoldings": {
+        "maturity": 62.33,
+        "maturityCat": 22.22,
+        "durationCat": 18.39
+    },
+    "bondRatings": [
+        {
+            "us_government": 0.48450002
+        }
+    ],
+    "sectorWeightings": [
+        {
+            "realestate": 0.0
+        },
+        {
+            "consumer_cyclical": 0.001
+        },
+        {
+            "basic_materials": 0.002
+        },
+        {
+            "consumer_defensive": 0.0023999999
+        },
+        {
+            "technology": 0.0
+        },
+        {
+            "communication_services": 0.0021
+        },
+        {
+            "financial_services": 0.0063
+        },
+        {
+            "utilities": 0.0019
+        },
+        {
+            "industrials": 0.0007
+        },
+        {
+            "energy": 0.00090000004
+        },
+        {
+            "healthcare": 0.0022
+        }
+    ]
+}
