@@ -32,7 +32,7 @@ This module defines updates [YahooQuery](https://yahooquery.dpguthrie.com)'s Sea
 The first function, _get_fund(params), takes a dictionary of parameters and returns a JSON object containing information about a financial fund. The second function, get_funds(names), takes a list of fund names, creates a set of _get_fund functions with corresponding parameters, and uses asyncio.gather() to retrieve the data for all the funds asynchronously. Finally, the search(names) function simply calls get_funds() with the provided list of fund names using the asyncio.run() method and returns the resulting data as a list.
 
 
-#### betteretf.helpers.Matching
+#### [betteretf.helpers.Matching](https://github.com/blakedaniel/Balanced_Website/blob/main/balanced_project/betteretf/helpers/matching.py)
 
 This module matches user-defined criteria to fund objects. The matcher class takes a Fund object, which contains information about a particular ETF, and initializes several filters for matching. The matching criteria include holdings, beta, and expense ratio. The match function applies these filters to a list of ETFs and returns the top cap matching funds. The holdings_match function filters for funds that have similar holdings to the user's fund, while beta_match filters for funds that have a beta within 5% of the user's fund. The exp_ratio_match function filters for funds that have a lower expense ratio than the user's fund. The sectors_match function is not yet implemented. The matching function returns a list of ETFs that match the user's criteria, sorted by expense ratio. The number of matches is limited to the cap parameter.
 
